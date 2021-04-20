@@ -80,10 +80,10 @@
             </objects>
             <point key="canvasLocation" x="138.40000000000001" y="93.103448275862078"/>
         </scene>
-        <!--View Controller-->
+        <!--Screen Colores-->
         <scene sceneID="8gf-De-uas">
             <objects>
-                <viewController id="4UJ-1U-LSE" sceneMemberID="viewController">
+                <viewController id="4UJ-1U-LSE" customClass="ScreenColores" customModule="Prototipo1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gJD-EB-2aH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -134,10 +134,10 @@
             </objects>
             <point key="canvasLocation" x="1085.5999999999999" y="492.50374812593708"/>
         </scene>
-        <!--View Controller-->
+        <!--Visual Code View Controller-->
         <scene sceneID="nhC-Uk-PwG">
             <objects>
-                <viewController id="Ilh-SA-nYR" sceneMemberID="viewController">
+                <viewController id="Ilh-SA-nYR" customClass="VisualCodeViewController" customModule="Prototipo1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hh8-Hb-azL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
