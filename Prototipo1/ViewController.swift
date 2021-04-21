@@ -10,7 +10,8 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     var listaFunciones = [
-    Funciones(tituloFunc: "Funcion 1")
+        Funciones(tituloFunc: "Funcion 1"),
+        Funciones(tituloFunc: "Funcion 2")
     ]
 
     override func viewDidLoad() {
@@ -18,6 +19,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Do any additional setup after loading the view.
     }
     
+    // MARK: - Metodos de Data Source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listaFunciones.count

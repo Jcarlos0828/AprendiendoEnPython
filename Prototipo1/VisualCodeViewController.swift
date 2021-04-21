@@ -9,11 +9,21 @@ import UIKit
 
 class VisualCodeViewController: UIViewController {
 
+    @IBOutlet weak var lbvalorVariable_1: UILabel!
+    @IBOutlet weak var tfvalorVariable_1: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        tfvalorVariable_1.isHidden = true
     }
+    
+    @IBAction func cambiaModo(_ sender: UISegmentedControl) {
+        lbvalorVariable_1.isHidden = !lbvalorVariable_1.isHidden
+        
+        tfvalorVariable_1.isHidden = !lbvalorVariable_1.isHidden
+    }
+    
     
 
     /*
