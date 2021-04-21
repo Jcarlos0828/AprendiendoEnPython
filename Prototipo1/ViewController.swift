@@ -27,10 +27,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var lbFunc2Val1 = "18"
     var lbFunc2Val2 = "22"
     
-<<<<<<< HEAD
-    
-=======
->>>>>>> main
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -56,7 +53,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // MARK: - Metodos de Segue
     
-<<<<<<< HEAD
+
     @IBAction func unwwindFuncion(segue: UIStoryboardSegue){
         
     }
@@ -64,9 +61,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func unwindGlosario(segue: UIStoryboardSegue){
         
     }
-    
-=======
->>>>>>> main
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "muestraCodigo"{
             let vistaCodigo = segue.destination as! VisualCodeViewController
