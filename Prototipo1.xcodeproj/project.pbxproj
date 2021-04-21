@@ -16,6 +16,7 @@
 		B24C43682629F37800E43AF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B24C43662629F37800E43AF1 /* Main.storyboard */; };
 		B24C436A2629F37C00E43AF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B24C43692629F37C00E43AF1 /* Assets.xcassets */; };
 		B24C436D2629F37C00E43AF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B24C436B2629F37C00E43AF1 /* LaunchScreen.storyboard */; };
+		B2CAB007262FCA5F00E7F0AC /* ViewControllerGlosario.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CAB006262FCA5F00E7F0AC /* ViewControllerGlosario.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		B24C43692629F37C00E43AF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B24C436C2629F37C00E43AF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B24C436E2629F37C00E43AF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2CAB006262FCA5F00E7F0AC /* ViewControllerGlosario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerGlosario.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,9 +48,6 @@
 		B24C43542629F37800E43AF1 = {
 			isa = PBXGroup;
 			children = (
-				4D6DBCDB262B7821009C695E /* VisualCodeViewController.swift */,
-				4D6DBCD8262B7706009C695E /* ScreenColores.swift */,
-				4D6DBCD5262B7282009C695E /* Funciones.swift */,
 				B24C435F2629F37800E43AF1 /* Prototipo1 */,
 				B24C435E2629F37800E43AF1 /* Products */,
 			);
@@ -65,10 +64,14 @@
 		B24C435F2629F37800E43AF1 /* Prototipo1 */ = {
 			isa = PBXGroup;
 			children = (
+				4D6DBCDB262B7821009C695E /* VisualCodeViewController.swift */,
+				4D6DBCD8262B7706009C695E /* ScreenColores.swift */,
+				4D6DBCD5262B7282009C695E /* Funciones.swift */,
 				B24C43602629F37800E43AF1 /* AppDelegate.swift */,
 				B24C43622629F37800E43AF1 /* SceneDelegate.swift */,
 				B24C43642629F37800E43AF1 /* ViewController.swift */,
 				B24C43662629F37800E43AF1 /* Main.storyboard */,
+				B2CAB006262FCA5F00E7F0AC /* ViewControllerGlosario.swift */,
 				B24C43692629F37C00E43AF1 /* Assets.xcassets */,
 				B24C436B2629F37C00E43AF1 /* LaunchScreen.storyboard */,
 				B24C436E2629F37C00E43AF1 /* Info.plist */,
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2CAB007262FCA5F00E7F0AC /* ViewControllerGlosario.swift in Sources */,
 				4D6DBCD6262B7282009C695E /* Funciones.swift in Sources */,
 				4D6DBCDC262B7821009C695E /* VisualCodeViewController.swift in Sources */,
 				B24C43652629F37800E43AF1 /* ViewController.swift in Sources */,
