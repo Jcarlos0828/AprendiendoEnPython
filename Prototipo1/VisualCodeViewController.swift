@@ -37,6 +37,7 @@ class VisualCodeViewController: UIViewController {
         
         tfvalorVariable_1.isHidden = true
         tfvalorVariable_2.isHidden = true
+<<<<<<< HEAD
     }
     
     @IBAction func cambiaModo(_ sender: UISegmentedControl) {
@@ -48,6 +49,28 @@ class VisualCodeViewController: UIViewController {
     }
     
     
+    @IBAction func quitarTeclado(_ sender: UITapGestureRecognizer) {
+        
+        view.endEditing(true)
+        
+    }
+    
+    @IBAction func unwindGlosarioFuncion(segue: UIStoryboardSegue){
+        
+    }
+=======
+    }
+    
+    @IBAction func cambiaModo(_ sender: UISegmentedControl) {
+        lbvalorVariable_1.isHidden = !lbvalorVariable_1.isHidden
+        lbvalorVariable_2.isHidden = !lbvalorVariable_2.isHidden
+        
+        tfvalorVariable_1.isHidden = !tfvalorVariable_1.isHidden
+        tfvalorVariable_2.isHidden = !tfvalorVariable_2.isHidden
+    }
+    
+    
+>>>>>>> main
 
     /*
     // MARK: - Navigation
