@@ -17,8 +17,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     
-    var lbFunc1Var1 = "dato_1"
-    var lbFunc1Var2 = "dato_2"
+    var lbFunc1Var1 = """
+                      def calcular(dato_1, dato_2, dato_3):
+                          return dato_1 + dato_2 + dato_3
+                      """
+    var lbFunc1Var2 = """
+                      def main():
+                          valor_1 = 10
+                          valor_2 = 15
+                          valor_3 = 20
+                          valor_4 = calcular(valor_1,_valor_2,valor_3)
+                          print("Se suman los valores -->", valor_1, valor_2, valor_3)
+                          print("La suma es igual -> ", valor_4)
+                      """
     var lbFunc1Val1 = "10"
     var lbFunc1Val2 = "15"
     
@@ -69,10 +80,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let indice = tableView.indexPathForSelectedRow!
             
             if listaFunciones[indice.row].tituloFunc == "Funcion 1"{
-                vistaCodigo.lbFuncVar1 = "dato_1"
-                vistaCodigo.lbFuncVar2 = "dato_2"
-                vistaCodigo.lbFuncVal1 = "10"
-                vistaCodigo.lbFuncVal2 = "15"
+                let main = lbFunc1Var2
+                let funcion = lbFunc1Var1
+                vistaCodigo.lbFuncVar1 = main
+                vistaCodigo.lbFuncVar2 = funcion
+                //vistaCodigo.lbFuncVal1 = "10"
+                //vistaCodigo.lbFuncVal2 = "15"
             }
             
             else if listaFunciones[indice.row].tituloFunc == "Funcion 2"{

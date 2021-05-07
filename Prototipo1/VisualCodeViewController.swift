@@ -57,8 +57,7 @@ class VisualCodeViewController: UIViewController {
     @IBAction func unwindGlosarioFuncion(segue: UIStoryboardSegue){
         
     }
-    
-    
+
     /*
     // MARK: - Navigation
 
