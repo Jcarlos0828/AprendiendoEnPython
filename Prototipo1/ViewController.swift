@@ -83,6 +83,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let funcion = lbFunc1Var1
                 vistaCodigo.lbFuncVar1 = main
                 vistaCodigo.lbFuncVar2 = funcion
+                vistaCodigo.numlineasFunc1 = 7
+                vistaCodigo.numlineasFunc2 = 2
                 //vistaCodigo.lbFuncVal1 = "10"
                 //vistaCodigo.lbFuncVal2 = "15"
             }
