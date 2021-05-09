@@ -10,6 +10,18 @@ import UIKit
 class VisualCodeViewController: UIViewController {
 
     @IBOutlet weak var lbTituloFunc: UILabel!
+    @IBOutlet weak var lbshadow: UILabel!
+    var numlineasFunc1 = 0
+    var numlineasFunc2 = 0
+    var xmain = 0
+    var xfun = 0
+    var ymain = 0
+    var yfun = 0
+    var numAbajo = 0
+    var numlineastotales = 0
+    var tempymain = 0
+    var main = true
+    var cambio = false
     
     
     @IBOutlet weak var lbVariable1: UILabel!
@@ -28,7 +40,26 @@ class VisualCodeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        xmain = Int(lbVariable1.frame.origin.x)
+        xfun = Int(lbVariable2.frame.origin.x)
+        ymain = Int(lbVariable1.frame.origin.y) + 46
+        yfun = Int(lbVariable2.frame.origin.y) + 46
+        
+        print(xmain)
+        print(ymain)
+        
+        
+        if numAbajo == 0{
+            lbshadow.isHidden = true
+            lbshadow.frame.origin.x = CGFloat(xmain)
+            lbshadow.frame.origin.y = CGFloat(ymain)
+            numlineastotales = numlineasFunc1 + numlineasFunc2
+            
+        }
+        
         lbTituloFunc.text = funcSelecc.tituloFunc
+        
         
         lbVariable1.text = lbFuncVar1
         lbVariable2.text = lbFuncVar2
@@ -53,6 +84,74 @@ class VisualCodeViewController: UIViewController {
         view.endEditing(true)
         
     }
+    
+    
+    @IBAction func siguienteLinea(_ sender: Any) {
+        
+        if numAbajo == 0{
+            lbshadow.isHidden = false
+        }
+        
+        if(numAbajo < numlineastotales - 1){
+            
+            numAbajo = numAbajo + 1
+            print(numAbajo)
+            
+            
+            if main {
+                if(numAbajo >= numlineasFunc1){
+                    main = false
+                    tempymain = Int(lbshadow.frame.origin.y)
+                    lbshadow.frame.origin.y = CGFloat(yfun)
+                } else {
+                    UIView.animate(withDuration: 1){
+                        self.lbshadow.frame.origin.y += 20
+                    }
+                }
+            } else {
+                UIView.animate(withDuration: 1){
+                    self.lbshadow.frame.origin.y += 20
+                }
+            }
+            
+
+        }
+        
+        
+        
+    }
+    
+    
+    
+    @IBAction func lineaAtras(_ sender: Any) {
+        if numAbajo > 0 {
+            numAbajo = numAbajo - 1
+            
+            print(numAbajo)
+            
+            if numAbajo == 0{
+                lbshadow.isHidden = true
+                lbshadow.frame.origin.y = CGFloat(ymain)
+            } else {
+                if !main {
+                    if numAbajo < numlineasFunc1 {
+                        main = true
+                        lbshadow.frame.origin.y = CGFloat(tempymain)
+                    } else {
+                        UIView.animate(withDuration: 1){
+                            self.lbshadow.frame.origin.y -= 20
+                        }
+                    }
+                    
+                } else {
+                    UIView.animate(withDuration: 1){
+                        self.lbshadow.frame.origin.y -= 20
+                    }
+                }
+            }
+        }
+    }
+    
     
     @IBAction func unwindGlosarioFuncion(segue: UIStoryboardSegue){
         
