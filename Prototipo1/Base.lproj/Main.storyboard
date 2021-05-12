@@ -236,19 +236,8 @@
                                 <rect key="frame" x="16" y="563" width="732" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9y4-n5-FY6">
-                                        <rect key="frame" x="438" y="8" width="41" height="32"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.6247517802" green="1" blue="0.87582276920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" image="arrowshape.turn.up.backward.fill" catalog="system">
-                                            <color key="titleColor" systemColor="labelColor"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="lineaAtras:" destination="Ilh-SA-nYR" eventType="touchUpInside" id="EzU-Lh-J9g"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gR-3o-pcV">
-                                        <rect key="frame" x="242" y="8" width="41" height="32"/>
+                                        <rect key="frame" x="442" y="8" width="41" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.6247517802" green="1" blue="0.87582276920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="arrowshape.turn.up.right.fill" catalog="system">
@@ -256,6 +245,17 @@
                                         </state>
                                         <connections>
                                             <action selector="siguienteLinea:" destination="Ilh-SA-nYR" eventType="touchUpInside" id="Ljf-jh-OoL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9y4-n5-FY6">
+                                        <rect key="frame" x="238" y="8" width="41" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.6247517802" green="1" blue="0.87582276920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="arrowshape.turn.up.backward.fill" catalog="system">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="lineaAtras:" destination="Ilh-SA-nYR" eventType="touchUpInside" id="EzU-Lh-J9g"/>
                                         </connections>
                                     </button>
                                 </subviews>
