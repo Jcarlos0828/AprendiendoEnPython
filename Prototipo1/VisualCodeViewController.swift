@@ -33,8 +33,8 @@ class VisualCodeViewController: UIViewController {
     @IBOutlet weak var lbvalorVariable_2: UILabel!
     
     var funcSelecc : Funciones!
-    var lbFuncVar1 : String!
-    var lbFuncVar2 : String!
+    var lbMain : String!
+    var lbFuncsAux : String!
     var lbFuncVal1 : String!
     var lbFuncVal2 : String!
     
@@ -61,8 +61,8 @@ class VisualCodeViewController: UIViewController {
         lbTituloFunc.text = funcSelecc.tituloFunc
         
         
-        lbVariable1.text = lbFuncVar1
-        lbVariable2.text = lbFuncVar2
+        lbVariable1.text = lbMain
+        lbVariable2.text = lbFuncsAux
         lbvalorVariable_1.text = lbFuncVal1
         lbvalorVariable_2.text = lbFuncVal2
         

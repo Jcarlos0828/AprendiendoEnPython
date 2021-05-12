@@ -17,11 +17,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     
-    var lbFunc1Var1 = """
+    var lbFunc1Calcular = """
                       def calcular(dato_1, dato_2, dato_3):
                           return dato_1 + dato_2 + dato_3
                       """
-    var lbFunc1Var2 = """
+    var lbFunc1Main = """
                       def main():
                           valor_1 = 10
                           valor_2 = 15
@@ -30,11 +30,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                           print("Se suman los valores -->", valor_1, valor_2, valor_3)
                           print("La suma es igual -> ", valor_4)
                       """
-    var lbFunc1Val1 = "10"
-    var lbFunc1Val2 = "15"
     
-    var lbFunc2Var1 = "valor_1"
-    var lbFunc2Var2 = "valor_2"
+    var lbFunc2Valores = """
+                      def valores(dato_3,dato_1,dato_2):
+                          print("dato_1 =", dato_1, " dato_2 =",dato_2, " dato_3 =", dato_3)
+                          dato_2 = dato_3 + 36 / 6
+                          dato_1 = dato_2 ** 2
+                          return dato_1, dato_2, dato_3
+                      """
+    var lbFunc2Main = """
+                      def main():
+                          valor_1 = 12
+                          valor_2 = 3
+                          valor_3 = 9
+                          valor_1, valor_2, valor_3 = valores(valor_2,valor_3,valor_1)
+                          print("valor_1 =", valor_1, " valor_2 = ", valor_2, " valor_3 =", valor_3)
+                          print("dato_4 es = ")
+                      """
     var lbFunc2Val1 = "18"
     var lbFunc2Val2 = "22"
     
@@ -79,19 +91,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let indice = tableView.indexPathForSelectedRow!
             
             if listaFunciones[indice.row].tituloFunc == "Funcion 1"{
-                let main = lbFunc1Var2
-                let funcion = lbFunc1Var1
-                vistaCodigo.lbFuncVar1 = main
-                vistaCodigo.lbFuncVar2 = funcion
+                let main = lbFunc1Main
+                let funcion = lbFunc1Calcular
+                vistaCodigo.lbMain = main
+                vistaCodigo.lbFuncsAux = funcion
                 vistaCodigo.numlineasFunc1 = 7
                 vistaCodigo.numlineasFunc2 = 2
-                //vistaCodigo.lbFuncVal1 = "10"
-                //vistaCodigo.lbFuncVal2 = "15"
             }
             
             else if listaFunciones[indice.row].tituloFunc == "Funcion 2"{
-                vistaCodigo.lbFuncVar1 = "valor_1"
-                vistaCodigo.lbFuncVar2 = "valor_2"
+                let main = lbFunc2Main
+                let funcion = lbFunc2Valores
+                vistaCodigo.lbMain = main
+                vistaCodigo.lbFuncsAux = funcion
                 vistaCodigo.lbFuncVal1 = "18"
                 vistaCodigo.lbFuncVal2 = "22"
             }
