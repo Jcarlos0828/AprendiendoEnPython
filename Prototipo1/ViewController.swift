@@ -10,13 +10,13 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     var listaFunciones = [
-        Funciones(tituloFunc: "Funcion 1"),
-        Funciones(tituloFunc: "Funcion 2")
+        Funciones(tituloFunc: "Funcion 1", llamadoFuncs : [5,7]),
+        Funciones(tituloFunc: "Funcion 2", llamadoFuncs : [5,10])
     ]
     
     
     @IBOutlet weak var tableView: UITableView!
-    
+
     var lbFunc1Calcular = """
                       def calcular(dato_1, dato_2, dato_3):
                           return dato_1 + dato_2 + dato_3
@@ -104,8 +104,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let funcion = lbFunc2Valores
                 vistaCodigo.lbMain = main
                 vistaCodigo.lbFuncsAux = funcion
-                vistaCodigo.lbFuncVal1 = "18"
-                vistaCodigo.lbFuncVal2 = "22"
+                vistaCodigo.numlineasFunc1 = 7
+                vistaCodigo.numlineasFunc2 = 5
             }
             vistaCodigo.funcSelecc = listaFunciones[indice.row]
         }
