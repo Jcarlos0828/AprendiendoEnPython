@@ -97,6 +97,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 vistaCodigo.lbFuncsAux = funcion
                 vistaCodigo.numlineasFunc1 = 7
                 vistaCodigo.numlineasFunc2 = 2
+                vistaCodigo.indexSaltos = listaFunciones[indice.row].llamadoFuncs
+                
             }
             
             else if listaFunciones[indice.row].tituloFunc == "Funcion 2"{
@@ -106,6 +108,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 vistaCodigo.lbFuncsAux = funcion
                 vistaCodigo.numlineasFunc1 = 7
                 vistaCodigo.numlineasFunc2 = 5
+                vistaCodigo.indexSaltos = listaFunciones[indice.row].llamadoFuncs
             }
             vistaCodigo.funcSelecc = listaFunciones[indice.row]
         }
