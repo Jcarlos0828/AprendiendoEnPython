@@ -10,8 +10,8 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     var listaFunciones = [
-        Funciones(tituloFunc: "Funcion 1", llamadoFuncs : [5,7]),
-        Funciones(tituloFunc: "Funcion 2", llamadoFuncs : [5,10])
+        Funciones(tituloFunc: "Funcion 1", llamadoFuncs : [5,7], largos : [140,140,140,140,140,140]),
+        Funciones(tituloFunc: "Funcion 2", llamadoFuncs : [5,10], largos : [140,140,140,140,480,275,540,215,200,240,480,580,230])
     ]
     
     
@@ -23,7 +23,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                       """
     var lbFunc1Main = """
                       def main():
-                          valor_1 = 10
+                          valor_1  = 10
                           valor_2 = 15
                           valor_3 = 20
                           valor_4 = calcular(valor_1,_valor_2,valor_3)
@@ -32,20 +32,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                       """
     
     var lbFunc2Valores = """
-                      def valores(dato_3,dato_1,dato_2):
-                          print("dato_1 =", dato_1, " dato_2 =",dato_2, " dato_3 =", dato_3)
-                          dato_2 = dato_3 + 36 / 6
+                      def recalcula(dato_3,dato_1,dato_2):
+                          print("Dato1 =", dato_1, " Dato2 =",dato_2, " Dato3 =", dato_3)
+                          dato_2 = dato_3 + 36  / 6
                           dato_1 = dato_2 ** 2
                           return dato_1, dato_2, dato_3
                       """
     var lbFunc2Main = """
                       def main():
-                          valor_1 = 12
+                          valor_1  = 12
                           valor_2 = 3
                           valor_3 = 9
-                          valor_1, valor_2, valor_3 = valores(valor_2,valor_3,valor_1)
-                          print("valor_1 =", valor_1, " valor_2 = ", valor_2, " valor_3 =", valor_3)
-                          print("dato_4 es = ")
+                          valor_1, valor_2, valor_3 = recalcula(valor_2, valor_3, valor_1)
+                          print("Valor1 es =", valor_1, " Valor2 es = ", valor_2, " Valor3 es =", valor_3)
+                          print("Dato3 es = ", dato_3)
                       """
     var lbFunc2Val1 = "18"
     var lbFunc2Val2 = "22"

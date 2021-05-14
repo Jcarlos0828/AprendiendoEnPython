@@ -30,11 +30,19 @@ class VisualCodeViewController: UIViewController {
     
     @IBOutlet weak var lbVariable1: UILabel!
     @IBOutlet weak var lbvalorVariable_1: UILabel!
-    @IBOutlet weak var tfvalorVariable_1: UITextField!
     
     @IBOutlet weak var lbVariable2: UILabel!
-    @IBOutlet weak var tfvalorVariable_2: UITextField!
-    @IBOutlet weak var lbvalorVariable_2: UILabel!
+    
+    
+    
+    
+    @IBOutlet weak var tfVariable1_Func2: UITextField!
+    @IBOutlet weak var tfVariable2_Func2: UITextField!
+    @IBOutlet weak var tfVariable3_Func2: UITextField!
+    @IBOutlet weak var tfVariable4_Func2: UITextField!
+    @IBOutlet weak var tfVariable5_Func2: UITextField!
+    @IBOutlet weak var tfVariable6_Func2: UITextField!
+    
     
     var funcSelecc : Funciones!
     var indexSaltos : [Int] = []
@@ -50,7 +58,6 @@ class VisualCodeViewController: UIViewController {
         xfun = Int(lbVariable2.frame.origin.x)
         ymain = Int(lbVariable1.frame.origin.y) + 46
         yfun = Int(lbVariable2.frame.origin.y) + 46
-        
         //print(xmain)
         //print(ymain)
         
@@ -68,21 +75,30 @@ class VisualCodeViewController: UIViewController {
         lbVariable1.text = lbMain
         lbVariable2.text = lbFuncsAux
         lbvalorVariable_1.text = lbFuncVal1
-        lbvalorVariable_2.text = lbFuncVal2
         
-        tfvalorVariable_1.isHidden = true
-        tfvalorVariable_2.isHidden = true
+        tfVariable1_Func2.isHidden = true
+        tfVariable2_Func2.isHidden = true
+        tfVariable3_Func2.isHidden = true
+        tfVariable4_Func2.isHidden = true
+        tfVariable5_Func2.isHidden = true
+        tfVariable6_Func2.isHidden = true
         
     }
     
     @IBAction func cambiaModo(_ sender: UISegmentedControl) {
-        lbvalorVariable_1.isHidden = !lbvalorVariable_1.isHidden
-        lbvalorVariable_2.isHidden = !lbvalorVariable_2.isHidden
         
-        tfvalorVariable_1.isHidden = !tfvalorVariable_1.isHidden
-        tfvalorVariable_2.isHidden = !tfvalorVariable_2.isHidden
+        tfVariable1_Func2.isHidden = !tfVariable1_Func2.isHidden
+        tfVariable2_Func2.isHidden = !tfVariable2_Func2.isHidden
+        tfVariable3_Func2.isHidden = !tfVariable3_Func2.isHidden
+        if funcSelecc.tituloFunc == "Funcion 2"{
+            lbvalorVariable_1.isHidden = !lbvalorVariable_1.isHidden
+            
+            
+            tfVariable4_Func2.isHidden = !tfVariable4_Func2.isHidden
+            tfVariable5_Func2.isHidden = !tfVariable5_Func2.isHidden
+            tfVariable6_Func2.isHidden = !tfVariable6_Func2.isHidden
+        }
     }
-    
     
     @IBAction func quitarTeclado(_ sender: UITapGestureRecognizer) {
         
@@ -90,12 +106,7 @@ class VisualCodeViewController: UIViewController {
         
     }
     
-    func desplazarSombre(){
-        UIView.animate(withDuration: 1){
-            self.lbshadow.frame.origin.y += 20
-            print(self.lbshadow.frame.origin.y)
-        }
-    }
+    
     
     @IBAction func siguienteLinea(_ sender: Any) {
         
@@ -106,9 +117,10 @@ class VisualCodeViewController: UIViewController {
         if(numAbajo < numlineastotales){
             
             numAbajo = numAbajo + 1
-            print(numAbajo, "tempymain = ", tempymain)
-            print("lista = ", indexSaltos)
+            print(numAbajo)
             
+            lbshadow.frame = CGRect(x: lbshadow.frame.minX, y: lbshadow.frame.minY, width: CGFloat(funcSelecc.largos[numAbajo]), height: lbshadow.frame.height)
+            print(lbshadow.frame)
             // >= funcSelecc.llamadoFuncs[0]
             if main {
                 if(numAbajo >= indexSaltos[0]){
@@ -118,7 +130,10 @@ class VisualCodeViewController: UIViewController {
                     lbshadow.frame.origin.y = CGFloat(yfun)
                     print("ya se movio la sombra, tempymain = ", tempymain)
                 } else {
-                    desplazarSombre()
+                    UIView.animate(withDuration: 1){
+                        self.lbshadow.frame.origin.y += 20
+                        print(self.lbshadow.frame.origin.y)
+                    }
                 }
             } else {
                 if(numAbajo >= indexSaltos[0]){
@@ -130,7 +145,10 @@ class VisualCodeViewController: UIViewController {
                     tempymain = aux
                 }
                 else{
-                    desplazarSombre()
+                    UIView.animate(withDuration: 1){
+                        self.lbshadow.frame.origin.y += 20
+                        print(self.lbshadow.frame.origin.y)
+                    }
                 }
             }
         }
@@ -144,6 +162,7 @@ class VisualCodeViewController: UIViewController {
             numAbajo = numAbajo - 1
             
             print(numAbajo)
+            lbshadow.frame = CGRect(x: lbshadow.frame.minX, y: lbshadow.frame.minY, width: CGFloat(funcSelecc.largos[numAbajo]), height: lbshadow.frame.height)
             
             if numAbajo == 0{
                 lbshadow.isHidden = true
