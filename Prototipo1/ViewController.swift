@@ -10,31 +10,45 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     var listaFunciones = [
-        Funciones(tituloFunc: "Funcion 1"),
-        Funciones(tituloFunc: "Funcion 2")
+        Funciones(tituloFunc: "Funcion 1", llamadoFuncs : [6,8], largos : [60,140,130,130,130,350,280,265,350,480,300]),
+        Funciones(tituloFunc: "Funcion 2", llamadoFuncs : [5,10], largos : [140,140,140,140,480,275,540,215,200,240,480,580,230])
     ]
     
     
     @IBOutlet weak var tableView: UITableView!
-    
-    var lbFunc1Var1 = """
+
+    var lbFunc1Calcular = """
                       def calcular(dato_1, dato_2, dato_3):
                           return dato_1 + dato_2 + dato_3
                       """
-    var lbFunc1Var2 = """
+    var lbFunc1Main = """
                       def main():
-                          valor_1 = 10
+                          valor_1  = 10
                           valor_2 = 15
                           valor_3 = 20
                           valor_4 = calcular(valor_1,_valor_2,valor_3)
                           print("Se suman los valores -->", valor_1, valor_2, valor_3)
                           print("La suma es igual -> ", valor_4)
+
+                      main()
                       """
-    var lbFunc1Val1 = "10"
-    var lbFunc1Val2 = "15"
     
-    var lbFunc2Var1 = "valor_1"
-    var lbFunc2Var2 = "valor_2"
+    var lbFunc2Valores = """
+                      def recalcula(dato_3,dato_1,dato_2):
+                          print("Dato1 =", dato_1, " Dato2 =",dato_2, " Dato3 =", dato_3)
+                          dato_2 = dato_3 + 36  / 6
+                          dato_1 = dato_2 ** 2
+                          return dato_1, dato_2, dato_3
+                      """
+    var lbFunc2Main = """
+                      def main():
+                          valor_1  = 12
+                          valor_2 = 3
+                          valor_3 = 9
+                          valor_1, valor_2, valor_3 = recalcula(valor_2, valor_3, valor_1)
+                          print("Valor1 es =", valor_1, " Valor2 es = ", valor_2, " Valor3 es =", valor_3)
+                          print("Dato3 es = ", dato_3)
+                      """
     var lbFunc2Val1 = "18"
     var lbFunc2Val2 = "22"
     
@@ -79,21 +93,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let indice = tableView.indexPathForSelectedRow!
             
             if listaFunciones[indice.row].tituloFunc == "Funcion 1"{
-                let main = lbFunc1Var2
-                let funcion = lbFunc1Var1
-                vistaCodigo.lbFuncVar1 = main
-                vistaCodigo.lbFuncVar2 = funcion
-                vistaCodigo.numlineasFunc1 = 7
+                let main = lbFunc1Main
+                let funcion = lbFunc1Calcular
+                vistaCodigo.lbMain = main
+                vistaCodigo.lbFuncsAux = funcion
+                vistaCodigo.numlineasFunc1 = 8
                 vistaCodigo.numlineasFunc2 = 2
-                //vistaCodigo.lbFuncVal1 = "10"
-                //vistaCodigo.lbFuncVal2 = "15"
+                vistaCodigo.indexSaltos = listaFunciones[indice.row].llamadoFuncs
+                vistaCodigo.offsetmain = 26
+                vistaCodigo.offsetfun = 78
+                
             }
             
             else if listaFunciones[indice.row].tituloFunc == "Funcion 2"{
-                vistaCodigo.lbFuncVar1 = "valor_1"
-                vistaCodigo.lbFuncVar2 = "valor_2"
-                vistaCodigo.lbFuncVal1 = "18"
-                vistaCodigo.lbFuncVal2 = "22"
+                let main = lbFunc2Main
+                let funcion = lbFunc2Valores
+                vistaCodigo.lbMain = main
+                vistaCodigo.lbFuncsAux = funcion
+                vistaCodigo.numlineasFunc1 = 7
+                vistaCodigo.numlineasFunc2 = 5
+                vistaCodigo.indexSaltos = listaFunciones[indice.row].llamadoFuncs
+                vistaCodigo.offsetmain = 46
+                vistaCodigo.offsetfun = 46
             }
             vistaCodigo.funcSelecc = listaFunciones[indice.row]
         }

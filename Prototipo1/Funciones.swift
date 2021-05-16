@@ -9,8 +9,12 @@ import UIKit
 
 class Funciones: NSObject {
     var tituloFunc: String
+    var llamadoFuncs : [Int]
+    var largos : [Int]
     
-    init(tituloFunc :String){
+    init(tituloFunc : String, llamadoFuncs : [Int], largos : [Int]){
         self.tituloFunc = tituloFunc
+        self.llamadoFuncs = llamadoFuncs
+        self.largos = largos
     }
 }
