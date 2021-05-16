@@ -230,8 +230,8 @@
                                 <rect key="frame" x="16" y="623" width="732" height="302"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Imb-wu-XzG">
-                                        <rect key="frame" x="8" y="29" width="129" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Imb-wu-XzG">
+                                        <rect key="frame" x="8" y="29" width="716" height="252"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -329,6 +329,8 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="control" destination="YdH-Iy-Web" id="D6o-ak-bdF"/>
+                        <outlet property="lbCodigo" destination="Imb-wu-XzG" id="okI-Sg-dPV"/>
                         <outlet property="lbTituloFunc" destination="L77-sC-rXC" id="vkY-20-6J1"/>
                         <outlet property="lbVariable1" destination="U75-3o-d7K" id="vYv-fL-4Qi"/>
                         <outlet property="lbVariable2" destination="Jfe-rv-Eqd" id="7J6-XT-ngz"/>
@@ -361,11 +363,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xii-fj-pKF">
-                                <rect key="frame" x="15" y="157" width="669" height="723"/>
+                                <rect key="frame" x="15" y="157" width="733" height="723"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Qr-Zs-rqc">
-                                        <rect key="frame" x="29" y="29" width="610" height="662"/>
+                                        <rect key="frame" x="29" y="29" width="678" height="662"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>

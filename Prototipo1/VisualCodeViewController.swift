@@ -26,6 +26,9 @@ class VisualCodeViewController: UIViewController {
     var tempymain = CGFloat()
     var main = true
     var cambio = false
+    var offsetmain = 0
+    var offsetfun = 0
+    var llamadamainy = 0
     
     
     @IBOutlet weak var lbVariable1: UILabel!
@@ -42,10 +45,14 @@ class VisualCodeViewController: UIViewController {
     @IBOutlet weak var tfVariable4_Func2: UITextField!
     @IBOutlet weak var tfVariable5_Func2: UITextField!
     @IBOutlet weak var tfVariable6_Func2: UITextField!
+    @IBOutlet weak var control: UISegmentedControl!
+    @IBOutlet weak var lbCodigo: UILabel!
+    
     
     
     var funcSelecc : Funciones!
     var indexSaltos : [Int] = []
+    var indexSaltosAux : [Int] = []
     var lbMain : String!
     var lbFuncsAux : String!
     var lbFuncVal1 : String!
@@ -56,8 +63,12 @@ class VisualCodeViewController: UIViewController {
         
         xmain = Int(lbVariable1.frame.origin.x)
         xfun = Int(lbVariable2.frame.origin.x)
-        ymain = Int(lbVariable1.frame.origin.y) + 46
-        yfun = Int(lbVariable2.frame.origin.y) + 46
+        ymain = Int(lbVariable1.frame.origin.y) + offsetmain
+        yfun = Int(lbVariable2.frame.origin.y) + offsetfun
+        
+        llamadamainy = ymain + (20 * numlineasFunc1)
+        
+        indexSaltosAux = indexSaltos
         //print(xmain)
         //print(ymain)
         
@@ -65,7 +76,7 @@ class VisualCodeViewController: UIViewController {
         if numAbajo == 0{
             lbshadow.isHidden = true
             lbshadow.frame.origin.x = CGFloat(xmain)
-            lbshadow.frame.origin.y = CGFloat(ymain)
+            lbshadow.frame.origin.y = CGFloat(llamadamainy)
             numlineastotales = numlineasFunc1 + numlineasFunc2
             
         }
@@ -107,50 +118,120 @@ class VisualCodeViewController: UIViewController {
     }
     
     
+    func mostrarEnPantalla(linea : Int){
+        let estado = control.selectedSegmentIndex
+        
+        var string = lbCodigo.text!
+        
+        if estado == 0{
+            switch linea - 1{
+            case 1:
+                string.append("Iniciando simulacion ....\nValor_! = 10")
+                break
+                
+            case 2:
+                string.append("\nValor_2 = 15")
+                break
+            
+            case 3:
+                string.append("\nValor_2 = 20")
+                break
+            case 4:
+                string.append("\nSe llama calcular con los parametros 10 , 15, 20")
+                break
+            case 5:
+                string.append("\nEntra calcular con los parametros 10 , 15, 20")
+                break
+            
+            case 6:
+                string.append("\nSe regresa a la funcion anterior con el parametro de 45")
+                break
+                
+            case 7:
+                string.append("\nValor_4 = 45")
+                break
+                
+            case 8:
+                string.append("\nSe suman los valores --> 10 15 20")
+                break
+                
+            case 9:
+                string.append("\nLa suma es igual --> 45")
+                break
+                
+            default:
+                string.append("\nespero funcione")
+            }
+        } else {
+            
+        }
+        
+        lbCodigo.text = string
+        
+    }
+    
     
     @IBAction func siguienteLinea(_ sender: Any) {
-        
+        /*
         if numAbajo == 0{
             lbshadow.isHidden = false
-        }
+        }*/
         
         if(numAbajo < numlineastotales){
             
-            numAbajo = numAbajo + 1
-            print(numAbajo)
-            
-            lbshadow.frame = CGRect(x: lbshadow.frame.minX, y: lbshadow.frame.minY, width: CGFloat(funcSelecc.largos[numAbajo]), height: lbshadow.frame.height)
-            print(lbshadow.frame)
-            // >= funcSelecc.llamadoFuncs[0]
-            if main {
-                if(numAbajo >= indexSaltos[0]){
-                    saltosCodigo.insert( indexSaltos.removeFirst(), at: 0)
-                    main = false
-                    tempymain = lbshadow.frame.origin.y
-                    lbshadow.frame.origin.y = CGFloat(yfun)
-                    print("ya se movio la sombra, tempymain = ", tempymain)
-                } else {
-                    UIView.animate(withDuration: 1){
-                        self.lbshadow.frame.origin.y += 20
-                        print(self.lbshadow.frame.origin.y)
+            if(numAbajo != 0){
+                
+                if(numAbajo == 1){
+                    lbshadow.frame.origin.y = CGFloat(ymain)
+                }
+                numAbajo = numAbajo + 1
+                
+                mostrarEnPantalla(linea: numAbajo)
+                print(numAbajo)
+                
+                lbshadow.frame = CGRect(x: lbshadow.frame.minX, y: lbshadow.frame.minY, width: CGFloat(funcSelecc.largos[numAbajo]), height: lbshadow.frame.height)
+                print(lbshadow.frame)
+                // >= funcSelecc.llamadoFuncs[0]
+                if main {
+                    if(numAbajo >= indexSaltos[0]){
+                        saltosCodigo.insert( indexSaltos.removeFirst(), at: 0)
+                        main = false
+                        tempymain = lbshadow.frame.origin.y
+                        lbshadow.frame.origin.y = CGFloat(yfun)
+                        print("ya se movio la sombra, tempymain = ", tempymain)
+                    } else {
+                        UIView.animate(withDuration: 1){
+                            self.lbshadow.frame.origin.y += 20
+                            print(self.lbshadow.frame.origin.y)
+                        }
                     }
-                }
-            } else {
-                if(numAbajo >= indexSaltos[0]){
-                    saltosCodigo.insert( indexSaltos.removeFirst(), at: 0)
-                    indexSaltos.append(100)
-                    main = true
-                    let aux = lbshadow.frame.origin.y
-                    lbshadow.frame.origin.y = tempymain
-                    tempymain = aux
-                }
-                else{
-                    UIView.animate(withDuration: 1){
-                        self.lbshadow.frame.origin.y += 20
-                        print(self.lbshadow.frame.origin.y)
+                } else {
+                    if(numAbajo >= indexSaltos[0]){
+                        saltosCodigo.insert( indexSaltos.removeFirst(), at: 0)
+                        indexSaltos.append(100)
+                        main = true
+                        let aux = lbshadow.frame.origin.y
+                        lbshadow.frame.origin.y = tempymain
+                        tempymain = aux
+                    }
+                    else{
+                        UIView.animate(withDuration: 1){
+                            self.lbshadow.frame.origin.y += 20
+                            print(self.lbshadow.frame.origin.y)
+                        }
                     }
                 }
             }
+            else {
+                lbshadow.isHidden = false
+                numAbajo = numAbajo + 1
+            }
+        } else {
+            lbCodigo.text = ""
+            numAbajo = 0
+            lbshadow.isHidden = true
+            lbshadow.frame.origin.y = CGFloat(ymain + llamadamainy)
+            indexSaltos = indexSaltosAux
         }
         
     }
@@ -166,7 +247,9 @@ class VisualCodeViewController: UIViewController {
             
             if numAbajo == 0{
                 lbshadow.isHidden = true
-                lbshadow.frame.origin.y = CGFloat(ymain)
+                lbshadow.frame.origin.y = CGFloat(ymain + llamadamainy)
+                lbCodigo.text = ""
+                indexSaltos = indexSaltosAux
             } else {
                 if !main {
                     if numAbajo < saltosCodigo[0] {

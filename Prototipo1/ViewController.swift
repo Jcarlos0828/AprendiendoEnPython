@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     var listaFunciones = [
-        Funciones(tituloFunc: "Funcion 1", llamadoFuncs : [5,7], largos : [140,140,140,140,140,140]),
+        Funciones(tituloFunc: "Funcion 1", llamadoFuncs : [6,8], largos : [60,140,130,130,130,350,280,265,350,480,300]),
         Funciones(tituloFunc: "Funcion 2", llamadoFuncs : [5,10], largos : [140,140,140,140,480,275,540,215,200,240,480,580,230])
     ]
     
@@ -29,6 +29,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                           valor_4 = calcular(valor_1,_valor_2,valor_3)
                           print("Se suman los valores -->", valor_1, valor_2, valor_3)
                           print("La suma es igual -> ", valor_4)
+
+                      main()
                       """
     
     var lbFunc2Valores = """
@@ -95,10 +97,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let funcion = lbFunc1Calcular
                 vistaCodigo.lbMain = main
                 vistaCodigo.lbFuncsAux = funcion
-                vistaCodigo.numlineasFunc1 = 7
+                vistaCodigo.numlineasFunc1 = 8
                 vistaCodigo.numlineasFunc2 = 2
                 vistaCodigo.indexSaltos = listaFunciones[indice.row].llamadoFuncs
-                
+                vistaCodigo.offsetmain = 26
+                vistaCodigo.offsetfun = 78                
             }
             
             else if listaFunciones[indice.row].tituloFunc == "Funcion 2"{
@@ -109,6 +112,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 vistaCodigo.numlineasFunc1 = 7
                 vistaCodigo.numlineasFunc2 = 5
                 vistaCodigo.indexSaltos = listaFunciones[indice.row].llamadoFuncs
+                vistaCodigo.offsetmain = 46
+                vistaCodigo.offsetfun = 46
             }
             vistaCodigo.funcSelecc = listaFunciones[indice.row]
         }
