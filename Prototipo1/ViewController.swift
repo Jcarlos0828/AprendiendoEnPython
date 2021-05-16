@@ -101,8 +101,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 vistaCodigo.numlineasFunc2 = 2
                 vistaCodigo.indexSaltos = listaFunciones[indice.row].llamadoFuncs
                 vistaCodigo.offsetmain = 26
-                vistaCodigo.offsetfun = 78
-                
+                vistaCodigo.offsetfun = 78                
             }
             
             else if listaFunciones[indice.row].tituloFunc == "Funcion 2"{
