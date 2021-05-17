@@ -104,13 +104,10 @@
                                 <rect key="frame" x="15" y="157" width="733" height="745"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6S-xT-mKR">
-                                        <rect key="frame" x="29" y="29" width="681" height="687"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="glosario" translatesAutoresizingMaskIntoConstraints="NO" id="u28-6k-am3">
+                                        <rect key="frame" x="8" y="181" width="717" height="420"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99183124300000003" green="0.80602180960000003" blue="0.66815704109999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -146,7 +143,6 @@
                     </view>
                     <connections>
                         <outlet property="fondo" destination="Lfd-M6-G2g" id="mMF-zF-rcX"/>
-                        <outlet property="lbGlosario" destination="j6S-xT-mKR" id="NY8-C5-HV3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S4w-Yo-6v9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -192,7 +188,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Egi-nn-5y2">
-                                        <rect key="frame" x="112" y="267" width="30" height="18"/>
+                                        <rect key="frame" x="112" y="247" width="30" height="18"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -220,14 +216,14 @@
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vju-OO-Ylw">
-                                        <rect key="frame" x="112" y="289" width="30" height="18"/>
+                                        <rect key="frame" x="112" y="269" width="30" height="18"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dsU-wa-Oom">
-                                        <rect key="frame" x="112" y="309" width="30" height="20"/>
+                                        <rect key="frame" x="112" y="289" width="30" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -366,13 +362,10 @@
                                 <rect key="frame" x="15" y="157" width="733" height="723"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Qr-Zs-rqc">
-                                        <rect key="frame" x="29" y="29" width="678" height="662"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="glosario" translatesAutoresizingMaskIntoConstraints="NO" id="tpz-Mw-QeR">
+                                        <rect key="frame" x="8" y="164" width="717" height="420"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99183124300000003" green="0.80602180960000003" blue="0.66815704109999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -407,7 +400,7 @@
                         <color key="backgroundColor" red="0.59844803810000002" green="0.72710448500000002" blue="0.59728825090000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outlet property="lbGlosario" destination="1Qr-Zs-rqc" id="GvK-HX-bbW"/>
+                        <outlet property="fondo" destination="5TB-9H-7ww" id="cLo-G4-RUg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u4O-Wk-0uX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -496,6 +489,7 @@
     <resources>
         <image name="arrowshape.turn.up.backward.fill" catalog="system" width="128" height="106"/>
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
+        <image name="glosario" width="1925" height="968"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="pythonFooter" width="601" height="203"/>
         <image name="pythonLogoV2" width="1200" height="1200"/>

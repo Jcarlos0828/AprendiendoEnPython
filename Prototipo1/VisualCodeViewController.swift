@@ -299,14 +299,17 @@ class VisualCodeViewController: UIViewController {
         
     }
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "mostrarGlosarioFuncion"{
+        let vista = segue.destination as! ViewControllerGlosario
+            
+        vista.glosColor1 = codeColor1
+        vista.glosColor2 = codeColor2
+            print(codeColor1, codeColor2)
+        }
+            
     }
-    */
-
 }

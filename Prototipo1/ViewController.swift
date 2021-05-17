@@ -57,6 +57,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                           valor_1, valor_2, valor_3 = recalcula(valor_2, valor_3, valor_1)
                           print("Valor1 es =", valor_1, " Valor2 es = ", valor_2, " Valor3 es =", valor_3)
                           print("Dato3 es = ", dato_3)
+
+                      main()
                       """ 
     var mainColor1 = UIColorFromRGB(0x99B998)
     var mainColor2 = UIColorFromRGB(0xFDCEAA)
@@ -131,7 +133,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let funcion = lbFunc2Valores
                 vistaCodigo.lbMain = main
                 vistaCodigo.lbFuncsAux = funcion
-                vistaCodigo.numlineasFunc1 = 7
+                vistaCodigo.numlineasFunc1 = 8
                 vistaCodigo.numlineasFunc2 = 5
                 vistaCodigo.indexSaltos = listaFunciones[indice.row].llamadoFuncs
                 vistaCodigo.offsetmain = 46
