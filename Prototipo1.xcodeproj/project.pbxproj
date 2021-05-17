@@ -10,6 +10,8 @@
 		4D6DBCD6262B7282009C695E /* Funciones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6DBCD5262B7282009C695E /* Funciones.swift */; };
 		4D6DBCD9262B7706009C695E /* ScreenColores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6DBCD8262B7706009C695E /* ScreenColores.swift */; };
 		4D6DBCDC262B7821009C695E /* VisualCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6DBCDB262B7821009C695E /* VisualCodeViewController.swift */; };
+		4DAC242C2651E7C6008EB495 /* ViewControllerColores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAC242B2651E7C6008EB495 /* ViewControllerColores.swift */; };
+		4DAC242F2651E872008EB495 /* Colores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAC242E2651E872008EB495 /* Colores.swift */; };
 		B24C43612629F37800E43AF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24C43602629F37800E43AF1 /* AppDelegate.swift */; };
 		B24C43632629F37800E43AF1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24C43622629F37800E43AF1 /* SceneDelegate.swift */; };
 		B24C43652629F37800E43AF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24C43642629F37800E43AF1 /* ViewController.swift */; };
@@ -23,6 +25,8 @@
 		4D6DBCD5262B7282009C695E /* Funciones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Funciones.swift; sourceTree = "<group>"; };
 		4D6DBCD8262B7706009C695E /* ScreenColores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenColores.swift; sourceTree = "<group>"; };
 		4D6DBCDB262B7821009C695E /* VisualCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualCodeViewController.swift; sourceTree = "<group>"; };
+		4DAC242B2651E7C6008EB495 /* ViewControllerColores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerColores.swift; sourceTree = "<group>"; };
+		4DAC242E2651E872008EB495 /* Colores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colores.swift; sourceTree = "<group>"; };
 		B24C435D2629F37800E43AF1 /* Prototipo1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prototipo1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B24C43602629F37800E43AF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B24C43622629F37800E43AF1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,12 +69,14 @@
 			isa = PBXGroup;
 			children = (
 				4D6DBCDB262B7821009C695E /* VisualCodeViewController.swift */,
+				4DAC242B2651E7C6008EB495 /* ViewControllerColores.swift */,
 				4D6DBCD8262B7706009C695E /* ScreenColores.swift */,
 				4D6DBCD5262B7282009C695E /* Funciones.swift */,
 				B24C43602629F37800E43AF1 /* AppDelegate.swift */,
 				B24C43622629F37800E43AF1 /* SceneDelegate.swift */,
 				B24C43642629F37800E43AF1 /* ViewController.swift */,
 				B24C43662629F37800E43AF1 /* Main.storyboard */,
+				4DAC242E2651E872008EB495 /* Colores.swift */,
 				B2CAB006262FCA5F00E7F0AC /* ViewControllerGlosario.swift */,
 				B24C43692629F37C00E43AF1 /* Assets.xcassets */,
 				B24C436B2629F37C00E43AF1 /* LaunchScreen.storyboard */,
@@ -150,9 +156,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2CAB007262FCA5F00E7F0AC /* ViewControllerGlosario.swift in Sources */,
+				4DAC242F2651E872008EB495 /* Colores.swift in Sources */,
 				4D6DBCD6262B7282009C695E /* Funciones.swift in Sources */,
 				4D6DBCDC262B7821009C695E /* VisualCodeViewController.swift in Sources */,
 				B24C43652629F37800E43AF1 /* ViewController.swift in Sources */,
+				4DAC242C2651E7C6008EB495 /* ViewControllerColores.swift in Sources */,
 				4D6DBCD9262B7706009C695E /* ScreenColores.swift in Sources */,
 				B24C43612629F37800E43AF1 /* AppDelegate.swift in Sources */,
 				B24C43632629F37800E43AF1 /* SceneDelegate.swift in Sources */,

@@ -7,12 +7,21 @@
 
 import UIKit
 
+func UIColorFromRGB(_ rgbValue: Int) -> UIColor! {
+    return UIColor(
+        red: CGFloat((Float((rgbValue & 0xff0000) >> 16)) / 255.0),
+        green: CGFloat((Float((rgbValue & 0x00ff00) >> 8)) / 255.0),
+        blue: CGFloat((Float((rgbValue & 0x0000ff) >> 0)) / 255.0),
+        alpha: 1.0)
+}
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     var listaFunciones = [
         Funciones(tituloFunc: "Funcion 1", llamadoFuncs : [6,8], largos : [60,140,130,130,130,350,280,265,350,480,300]),
         Funciones(tituloFunc: "Funcion 2", llamadoFuncs : [5,10], largos : [140,140,140,140,480,275,540,215,200,240,480,580,230])
     ]
+    
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -48,9 +57,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                           valor_1, valor_2, valor_3 = recalcula(valor_2, valor_3, valor_1)
                           print("Valor1 es =", valor_1, " Valor2 es = ", valor_2, " Valor3 es =", valor_3)
                           print("Dato3 es = ", dato_3)
-                      """
-    var lbFunc2Val1 = "18"
-    var lbFunc2Val2 = "22"
+                      """ 
+    var mainColor1 = UIColorFromRGB(0x99B998)
+    var mainColor2 = UIColorFromRGB(0xFDCEAA)
+    var mainColor3 = UIColorFromRGB(0xF4837D)
+    var mainColor4 = UIColorFromRGB(0xEB4960)
+    var mainColor5 = UIColorFromRGB(0x27363B)
     
     
     override func viewDidLoad() {
@@ -86,11 +98,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    @IBAction func unwindColores(segue: UIStoryboardSegue){
+        view.backgroundColor = mainColor1
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "muestraCodigo"{
             let vistaCodigo = segue.destination as! VisualCodeViewController
             
             let indice = tableView.indexPathForSelectedRow!
+            
+            vistaCodigo.codeColor1 = mainColor1!
+            vistaCodigo.codeColor2 = mainColor2!
+            vistaCodigo.codeColor3 = mainColor3!
+            vistaCodigo.codeColor4 = mainColor4!
+            vistaCodigo.codeColor5 = mainColor5!
             
             if listaFunciones[indice.row].tituloFunc == "Funcion 1"{
                 let main = lbFunc1Main
@@ -116,6 +138,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 vistaCodigo.offsetfun = 46
             }
             vistaCodigo.funcSelecc = listaFunciones[indice.row]
+        }
+        else if segue.identifier == "glosarioMenu"{
+            let vista = segue.destination as! ViewControllerGlosario
+            
+            vista.glosColor1 = mainColor1!
+            vista.glosColor2 = mainColor2!
+            
         }
     }
 

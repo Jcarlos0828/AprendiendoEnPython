@@ -30,10 +30,19 @@ class VisualCodeViewController: UIViewController {
     var offsetfun = 0
     var llamadamainy = 0
     
+    var codeColor1 = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
+    var codeColor2 = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
+    var codeColor3 = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
+    var codeColor4 = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
+    var codeColor5 = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
+    @IBOutlet weak var fondo: UIView!
+    @IBOutlet weak var consola: UIView!
+    @IBOutlet weak var barraMedio: UIView!
+    @IBOutlet weak var flechaIzq: UIButton!
+    @IBOutlet weak var flechaDer: UIButton!
+    
     
     @IBOutlet weak var lbVariable1: UILabel!
-    @IBOutlet weak var lbvalorVariable_1: UILabel!
-    
     @IBOutlet weak var lbVariable2: UILabel!
     
     
@@ -85,7 +94,6 @@ class VisualCodeViewController: UIViewController {
         
         lbVariable1.text = lbMain
         lbVariable2.text = lbFuncsAux
-        lbvalorVariable_1.text = lbFuncVal1
         
         tfVariable1_Func2.isHidden = true
         tfVariable2_Func2.isHidden = true
@@ -93,6 +101,14 @@ class VisualCodeViewController: UIViewController {
         tfVariable4_Func2.isHidden = true
         tfVariable5_Func2.isHidden = true
         tfVariable6_Func2.isHidden = true
+        
+        view.backgroundColor = codeColor1
+        fondo.backgroundColor = codeColor2
+        barraMedio.backgroundColor = codeColor3
+        flechaIzq.tintColor = codeColor4
+        flechaDer.tintColor = codeColor4
+        consola.backgroundColor = codeColor5
+        lbshadow.backgroundColor = codeColor4
         
     }
     
@@ -102,8 +118,6 @@ class VisualCodeViewController: UIViewController {
         tfVariable2_Func2.isHidden = !tfVariable2_Func2.isHidden
         tfVariable3_Func2.isHidden = !tfVariable3_Func2.isHidden
         if funcSelecc.tituloFunc == "Funcion 2"{
-            lbvalorVariable_1.isHidden = !lbvalorVariable_1.isHidden
-            
             
             tfVariable4_Func2.isHidden = !tfVariable4_Func2.isHidden
             tfVariable5_Func2.isHidden = !tfVariable5_Func2.isHidden

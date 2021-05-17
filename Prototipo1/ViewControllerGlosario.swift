@@ -10,6 +10,10 @@ import UIKit
 class ViewControllerGlosario: UIViewController {
 
     @IBOutlet weak var lbGlosario: UILabel!
+    @IBOutlet weak var fondo: UIView!
+    
+    var glosColor1 =  UIColor(red: 1, green: 255/255, blue: 1, alpha: 1)
+    var glosColor2 =  UIColor(red: 1, green: 255/255, blue: 1, alpha: 1)
     
     //var menu = false
     
@@ -25,6 +29,8 @@ class ViewControllerGlosario: UIViewController {
                     """
         
         lbGlosario.text = str
+        view.backgroundColor = glosColor1
+        fondo.backgroundColor = glosColor2
 
         // Do any additional setup after loading the view.
     }
