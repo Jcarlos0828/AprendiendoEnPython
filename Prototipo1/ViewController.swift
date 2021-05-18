@@ -133,7 +133,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let funcion = lbFunc2Valores
                 vistaCodigo.lbMain = main
                 vistaCodigo.lbFuncsAux = funcion
-                vistaCodigo.numlineasFunc1 = 8
+                vistaCodigo.numlineasFunc1 = 7
                 vistaCodigo.numlineasFunc2 = 5
                 vistaCodigo.indexSaltos = listaFunciones[indice.row].llamadoFuncs
                 vistaCodigo.offsetmain = 46

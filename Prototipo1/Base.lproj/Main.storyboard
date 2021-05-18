@@ -273,7 +273,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gR-3o-pcV">
-                                        <rect key="frame" x="442" y="8" width="41" height="32"/>
+                                        <rect key="frame" x="442" y="10" width="40" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.6247517802" green="1" blue="0.87582276920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="arrowshape.turn.up.right.fill" catalog="system">
@@ -284,7 +284,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9y4-n5-FY6">
-                                        <rect key="frame" x="238" y="8" width="41" height="32"/>
+                                        <rect key="frame" x="238" y="8" width="40" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.6247517802" green="1" blue="0.87582276920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="arrowshape.turn.up.backward.fill" catalog="system">
@@ -292,6 +292,18 @@
                                         </state>
                                         <connections>
                                             <action selector="lineaAtras:" destination="Ilh-SA-nYR" eventType="touchUpInside" id="EzU-Lh-J9g"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IOU-iR-EvF">
+                                        <rect key="frame" x="340" y="10" width="40" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.6247517802" green="1" blue="0.87582276920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" image="arrow.counterclockwise" catalog="system">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="reset:" destination="Ilh-SA-nYR" eventType="touchUpInside" id="HwW-UD-WbH"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -332,6 +344,7 @@
                         <outlet property="lbVariable1" destination="U75-3o-d7K" id="vYv-fL-4Qi"/>
                         <outlet property="lbVariable2" destination="Jfe-rv-Eqd" id="7J6-XT-ngz"/>
                         <outlet property="lbshadow" destination="SIq-6s-cPA" id="rwD-4b-QzF"/>
+                        <outlet property="reset" destination="IOU-iR-EvF" id="Nou-Di-xiR"/>
                         <outlet property="tfVariable1_Func2" destination="Egi-nn-5y2" id="laO-nn-tFb"/>
                         <outlet property="tfVariable2_Func2" destination="vju-OO-Ylw" id="gXO-7F-BfF"/>
                         <outlet property="tfVariable3_Func2" destination="dsU-wa-Oom" id="hcQ-DN-4cn"/>
@@ -487,6 +500,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.counterclockwise" catalog="system" width="115" height="128"/>
         <image name="arrowshape.turn.up.backward.fill" catalog="system" width="128" height="106"/>
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
         <image name="glosario" width="1925" height="968"/>

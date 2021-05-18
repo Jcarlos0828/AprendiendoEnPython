@@ -40,6 +40,7 @@ class VisualCodeViewController: UIViewController {
     @IBOutlet weak var barraMedio: UIView!
     @IBOutlet weak var flechaIzq: UIButton!
     @IBOutlet weak var flechaDer: UIButton!
+    @IBOutlet weak var reset: UIButton!
     
     
     @IBOutlet weak var lbVariable1: UILabel!
@@ -107,9 +108,25 @@ class VisualCodeViewController: UIViewController {
         barraMedio.backgroundColor = codeColor3
         flechaIzq.tintColor = codeColor4
         flechaDer.tintColor = codeColor4
+        reset.tintColor = codeColor4
         consola.backgroundColor = codeColor5
         lbshadow.backgroundColor = codeColor4
         
+    }
+    
+    func reinicia(){
+        numAbajo = 0
+        saltosCodigo = [-1]
+        indexSaltos = indexSaltosAux
+        lbCodigo.text = ""
+        lbshadow.isHidden = true
+        lbshadow.frame.origin.x = CGFloat(xmain)
+        lbshadow.frame.origin.y = CGFloat(llamadamainy)
+        
+    }
+    
+    @IBAction func reset(_ sender: UIButton) {
+        reinicia()
     }
     
     @IBAction func cambiaModo(_ sender: UISegmentedControl) {
@@ -123,6 +140,7 @@ class VisualCodeViewController: UIViewController {
             tfVariable5_Func2.isHidden = !tfVariable5_Func2.isHidden
             tfVariable6_Func2.isHidden = !tfVariable6_Func2.isHidden
         }
+        reinicia()
     }
     
     @IBAction func quitarTeclado(_ sender: UITapGestureRecognizer) {
@@ -140,7 +158,7 @@ class VisualCodeViewController: UIViewController {
         if estado == 0{
             switch linea - 1{
             case 1:
-                string.append("Iniciando simulacion ....\nValor_! = 10")
+                string.append("Iniciando simulacion ....\nValor_1 = 10")
                 break
                 
             case 2:
@@ -148,7 +166,7 @@ class VisualCodeViewController: UIViewController {
                 break
             
             case 3:
-                string.append("\nValor_2 = 20")
+                string.append("\nValor_3 = 20")
                 break
             case 4:
                 string.append("\nSe llama calcular con los parametros 10 , 15, 20")
@@ -190,7 +208,6 @@ class VisualCodeViewController: UIViewController {
         if numAbajo == 0{
             lbshadow.isHidden = false
         }*/
-        
         if(numAbajo < numlineastotales){
             
             if(numAbajo != 0){
