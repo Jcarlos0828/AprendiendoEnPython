@@ -50,13 +50,23 @@ class VisualCodeViewController: UIViewController {
     
     
     @IBOutlet weak var tfVariable1_Func2: UITextField!
+    var cteVar1 = "10"
+    var auxCte1 = "10"
     @IBOutlet weak var tfVariable2_Func2: UITextField!
+    var cteVar2 = "15"
+    var auxCte2 = "15"
     @IBOutlet weak var tfVariable3_Func2: UITextField!
+    var cteVar3 = "20"
+    var auxCte3 = "20"
     @IBOutlet weak var tfVariable4_Func2: UITextField!
+    var auxCte4 = "1000"
     @IBOutlet weak var tfVariable5_Func2: UITextField!
+    var auxCte5 = "1000"
     @IBOutlet weak var tfVariable6_Func2: UITextField!
+    var auxCte6 = "1000"
     @IBOutlet weak var control: UISegmentedControl!
     @IBOutlet weak var lbCodigo: UILabel!
+    var lenOutput = [0]
     
     
     
@@ -117,11 +127,27 @@ class VisualCodeViewController: UIViewController {
     func reinicia(){
         numAbajo = 0
         saltosCodigo = [-1]
+        lenOutput = [0]
         indexSaltos = indexSaltosAux
         lbCodigo.text = ""
         lbshadow.isHidden = true
         lbshadow.frame.origin.x = CGFloat(xmain)
         lbshadow.frame.origin.y = CGFloat(llamadamainy)
+        cteVar1 = auxCte1
+        cteVar2 = auxCte2
+        cteVar3 = auxCte3
+        tfVariable1_Func2.isUserInteractionEnabled = true
+        tfVariable2_Func2.isUserInteractionEnabled = true
+        tfVariable3_Func2.isUserInteractionEnabled = true
+        tfVariable4_Func2.isUserInteractionEnabled = true
+        tfVariable5_Func2.isUserInteractionEnabled = true
+        tfVariable6_Func2.isUserInteractionEnabled = true
+        tfVariable1_Func2.backgroundColor = UIColor(named: "white")
+        tfVariable2_Func2.backgroundColor = UIColor(named: "white")
+        tfVariable3_Func2.backgroundColor = UIColor(named: "white")
+        tfVariable4_Func2.backgroundColor = UIColor(named: "white")
+        tfVariable5_Func2.backgroundColor = UIColor(named: "white")
+        tfVariable6_Func2.backgroundColor = UIColor(named: "white")
         
     }
     
@@ -151,49 +177,77 @@ class VisualCodeViewController: UIViewController {
     
     
     func mostrarEnPantalla(linea : Int){
-        let estado = control.selectedSegmentIndex
         
         var string = lbCodigo.text!
-        
-        if estado == 0{
+        let estado = control.selectedSegmentIndex
+        if estado == 1{
+            asigna()
+        }
+        if funcSelecc.tituloFunc == "Funcion 1"{
             switch linea - 1{
             case 1:
-                string.append("Iniciando simulacion ....\nValor_1 = 10")
+                string.append("Iniciando simulacion ....\nValor_1 = ")
+                string.append(cteVar1)
+                print("Esta linea mide ", string.count)
                 break
                 
             case 2:
-                string.append("\nValor_2 = 15")
+                string.append("\nValor_2 = ")
+                string.append(cteVar2)
+                print("Esta linea mide ", string.count)
                 break
             
             case 3:
-                string.append("\nValor_3 = 20")
+                string.append("\nValor_3 = ")
+                string.append(cteVar3)
+                print("Esta linea mide ", string.count)
                 break
             case 4:
-                string.append("\nSe llama calcular con los parametros 10 , 15, 20")
+                string.append("\nSe llama calcular con los parametros ")
+                string.append(cteVar1)
+                string.append(" , ")
+                string.append(cteVar2)
+                string.append(" , ")
+                string.append(cteVar3)
                 break
             case 5:
-                string.append("\nEntra calcular con los parametros 10 , 15, 20")
+                string.append("\nEntra calcular con los parametros ")
+                string.append(cteVar1)
+                string.append(" , ")
+                string.append(cteVar2)
+                string.append(" , ")
+                string.append(cteVar3)
                 break
             
             case 6:
-                string.append("\nSe regresa a la funcion anterior con el parametro de 45")
+                string.append("\nSe regresa a la funcion anterior con valor de retorno igual a ")
+                string.append(String(Float(cteVar1)! + Float(cteVar2)! + Float(cteVar3)!))
                 break
                 
             case 7:
-                string.append("\nValor_4 = 45")
+                string.append("\nValor_4 = ")
+                string.append(String(Float(cteVar1)! + Float(cteVar2)! + Float(cteVar3)!))
                 break
                 
             case 8:
-                string.append("\nSe suman los valores --> 10 15 20")
+                string.append("\nSe suman los valores --> ")
+                string.append(cteVar1)
+                string.append(" ")
+                string.append(cteVar2)
+                string.append(" ")
+                string.append(cteVar3)
                 break
                 
             case 9:
-                string.append("\nLa suma es igual --> 45")
+                string.append("\nLa suma es igual --> ")
+                string.append(String(Float(cteVar1)! + Float(cteVar2)! + Float(cteVar3)!))
                 break
                 
             default:
                 string.append("\nespero funcione")
             }
+            lenOutput.append(string.count)
+            print(lenOutput)
         } else {
             
         }
@@ -202,74 +256,113 @@ class VisualCodeViewController: UIViewController {
         
     }
     
+    func hayDatos() -> Bool{
+        if(!tfVariable1_Func2.isHidden){
+            if(tfVariable1_Func2.text == "" ||  tfVariable2_Func2.text == "" || tfVariable3_Func2.text == ""){
+                return false
+            }
+        }
+        if(!tfVariable4_Func2.isHidden){
+            if(tfVariable4_Func2.text == "" ||  tfVariable5_Func2.text == "" || tfVariable6_Func2.text == ""){
+                return false
+            }
+        }
+        return true
+    }
+ 
+    
+    func asigna(){
+        cteVar1 = tfVariable1_Func2.text!
+        cteVar2 = tfVariable2_Func2.text!
+        cteVar3 = tfVariable3_Func2.text!
+        
+    }
+    
     
     @IBAction func siguienteLinea(_ sender: Any) {
-        /*
-        if numAbajo == 0{
-            lbshadow.isHidden = false
-        }*/
-        if(numAbajo < numlineastotales){
-            
-            if(numAbajo != 0){
-                
-                if(numAbajo == 1){
-                    lbshadow.frame.origin.y = CGFloat(ymain)
-                }
-                numAbajo = numAbajo + 1
-                
-                mostrarEnPantalla(linea: numAbajo)
-                print(numAbajo)
-                
-                lbshadow.frame = CGRect(x: lbshadow.frame.minX, y: lbshadow.frame.minY, width: CGFloat(funcSelecc.largos[numAbajo]), height: lbshadow.frame.height)
-                print(lbshadow.frame)
-                // >= funcSelecc.llamadoFuncs[0]
-                if main {
-                    if(numAbajo >= indexSaltos[0]){
-                        saltosCodigo.insert( indexSaltos.removeFirst(), at: 0)
-                        main = false
-                        tempymain = lbshadow.frame.origin.y
-                        lbshadow.frame.origin.y = CGFloat(yfun)
-                        print("ya se movio la sombra, tempymain = ", tempymain)
-                    } else {
-                        UIView.animate(withDuration: 1){
-                            self.lbshadow.frame.origin.y += 20
-                            print(self.lbshadow.frame.origin.y)
-                        }
-                    }
-                } else {
-                    if(numAbajo >= indexSaltos[0]){
-                        saltosCodigo.insert( indexSaltos.removeFirst(), at: 0)
-                        indexSaltos.append(100)
-                        main = true
-                        let aux = lbshadow.frame.origin.y
-                        lbshadow.frame.origin.y = tempymain
-                        tempymain = aux
-                    }
-                    else{
-                        UIView.animate(withDuration: 1){
-                            self.lbshadow.frame.origin.y += 20
-                            print(self.lbshadow.frame.origin.y)
-                        }
-                    }
-                }
-            }
-            else {
-                lbshadow.isHidden = false
-                numAbajo = numAbajo + 1
-            }
-        } else {
-            lbCodigo.text = ""
-            numAbajo = 0
-            lbshadow.isHidden = true
-            lbshadow.frame.origin.y = CGFloat(ymain + llamadamainy)
-            indexSaltos = indexSaltosAux
-        }
         
+        if numAbajo == 0 && hayDatos(){
+            lbshadow.isHidden = false
+        }
+
+        let estado = control.selectedSegmentIndex
+        if (estado == 1 && hayDatos()) || estado == 0{
+            if(numAbajo < numlineastotales){
+                
+                if(numAbajo != 0){
+                    if(numAbajo == 1){
+                        lbshadow.frame.origin.y = CGFloat(ymain)
+                    }
+                    numAbajo = numAbajo + 1
+                    
+                    mostrarEnPantalla(linea: numAbajo)
+                    print(numAbajo)
+                    
+                    lbshadow.frame = CGRect(x: lbshadow.frame.minX, y: lbshadow.frame.minY, width: CGFloat(funcSelecc.largos[numAbajo]), height: lbshadow.frame.height)
+                    //print(lbshadow.frame)
+                    // >= funcSelecc.llamadoFuncs[0]
+                    if main {
+                        if(numAbajo >= indexSaltos[0]){
+                            saltosCodigo.insert( indexSaltos.removeFirst(), at: 0)
+                            main = false
+                            tempymain = lbshadow.frame.origin.y
+                            lbshadow.frame.origin.y = CGFloat(yfun)
+                            //print("ya se movio la sombra, tempymain = ", tempymain)
+                        } else {
+                            UIView.animate(withDuration: 1){
+                                self.lbshadow.frame.origin.y += 20
+                                //print(self.lbshadow.frame.origin.y)
+                            }
+                        }
+                    } else {
+                        if(numAbajo >= indexSaltos[0]){
+                            saltosCodigo.insert( indexSaltos.removeFirst(), at: 0)
+                            indexSaltos.append(100)
+                            main = true
+                            let aux = lbshadow.frame.origin.y
+                            lbshadow.frame.origin.y = tempymain
+                            tempymain = aux
+                        }
+                        else{
+                            UIView.animate(withDuration: 1){
+                                self.lbshadow.frame.origin.y += 20
+                                //print(self.lbshadow.frame.origin.y)
+                            }
+                        }
+                    }
+                }
+                else {
+                    lbshadow.isHidden = false
+                    numAbajo = numAbajo + 1
+                    if estado == 1{
+                        tfVariable1_Func2.isUserInteractionEnabled = false
+                        tfVariable1_Func2.backgroundColor = codeColor4
+                        tfVariable2_Func2.isUserInteractionEnabled = false
+                        tfVariable2_Func2.backgroundColor = codeColor4
+                        tfVariable3_Func2.isUserInteractionEnabled = false
+                        tfVariable3_Func2.backgroundColor = codeColor4
+                        tfVariable4_Func2.isUserInteractionEnabled = false
+                        tfVariable4_Func2.backgroundColor = codeColor4
+                        tfVariable5_Func2.isUserInteractionEnabled = false
+                        tfVariable5_Func2.backgroundColor = codeColor4
+                        tfVariable6_Func2.isUserInteractionEnabled = false
+                        tfVariable5_Func2.backgroundColor = codeColor4
+                    }
+                }
+            } else {
+                //Esta no la quise borrar porque en la funcion reinicia le puse otro valor, esta bien?
+                //lbshadow.frame.origin.y = CGFloat(ymain + llamadamainy)
+                reinicia()
+            }
+        }
     }
     
     
     
     @IBAction func lineaAtras(_ sender: Any) {
+        
+        let estado = control.selectedSegmentIndex
+        
         if numAbajo > 0 {
             numAbajo = numAbajo - 1
             
@@ -307,6 +400,33 @@ class VisualCodeViewController: UIViewController {
                         }
                     }
                 }
+            }
+            if lenOutput.count > 1{
+                var aux = lbCodigo.text!
+                print(aux)
+                print(lenOutput, " / ",  lenOutput[lenOutput.count - 2]+1, lenOutput[lenOutput.count - 1])
+                for _ in lenOutput[lenOutput.count - 2]+1 ... lenOutput[lenOutput.count - 1]{
+                    aux.removeLast()
+                }
+                lenOutput.popLast()
+                lbCodigo.text = aux
+            }
+        }
+        else{
+            if(!tfVariable1_Func2.isUserInteractionEnabled){
+                
+                tfVariable1_Func2.isUserInteractionEnabled = true
+                tfVariable1_Func2.backgroundColor = UIColor(named: "white")
+                tfVariable2_Func2.isUserInteractionEnabled = true
+                tfVariable2_Func2.backgroundColor = UIColor(named: "white")
+                tfVariable3_Func2.isUserInteractionEnabled = true
+                tfVariable3_Func2.backgroundColor = UIColor(named: "white")
+                tfVariable4_Func2.isUserInteractionEnabled = true
+                tfVariable4_Func2.backgroundColor = UIColor(named: "white")
+                tfVariable5_Func2.isUserInteractionEnabled = true
+                tfVariable5_Func2.backgroundColor = UIColor(named: "white")
+                tfVariable6_Func2.isUserInteractionEnabled = true
+                tfVariable5_Func2.backgroundColor = UIColor(named: "white")
             }
         }
     }
