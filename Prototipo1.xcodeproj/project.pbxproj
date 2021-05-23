@@ -79,6 +79,7 @@
 				B24C43642629F37800E43AF1 /* ViewController.swift */,
 				B24C43662629F37800E43AF1 /* Main.storyboard */,
 				B20CA2F92656A66800F7582E /* ViewControllerGlosarioFunciones.swift */,
+
 				4DAC242E2651E872008EB495 /* Colores.swift */,
 				B2CAB006262FCA5F00E7F0AC /* ViewControllerGlosario.swift */,
 				B24C43692629F37C00E43AF1 /* Assets.xcassets */,
