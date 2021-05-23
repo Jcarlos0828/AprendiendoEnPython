@@ -35,6 +35,7 @@ class VisualCodeViewController: UIViewController {
     var codeColor3 = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
     var codeColor4 = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
     var codeColor5 = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
+    var codeColor6 = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
     @IBOutlet weak var fondo: UIView!
     @IBOutlet weak var consola: UIView!
     @IBOutlet weak var barraMedio: UIView!
@@ -50,20 +51,23 @@ class VisualCodeViewController: UIViewController {
     
     
     @IBOutlet weak var tfVariable1_Func2: UITextField!
-    var cteVar1 = "10"
-    var auxCte1 = "10"
+    var cteVar1 = "0"
+    var auxCte1 = "0"
     @IBOutlet weak var tfVariable2_Func2: UITextField!
-    var cteVar2 = "15"
-    var auxCte2 = "15"
+    var cteVar2 = "0"
+    var auxCte2 = "0"
     @IBOutlet weak var tfVariable3_Func2: UITextField!
-    var cteVar3 = "20"
-    var auxCte3 = "20"
+    var cteVar3 = "0"
+    var auxCte3 = "0"
     @IBOutlet weak var tfVariable4_Func2: UITextField!
-    var auxCte4 = "1000"
+    var cteVar4 = "0"
+    var auxCte4 = "0"
     @IBOutlet weak var tfVariable5_Func2: UITextField!
-    var auxCte5 = "1000"
+    var cteVar5 = "0"
+    var auxCte5 = "0"
     @IBOutlet weak var tfVariable6_Func2: UITextField!
-    var auxCte6 = "1000"
+    var cteVar6 = "0"
+    var auxCte6 = "0"
     @IBOutlet weak var control: UISegmentedControl!
     @IBOutlet weak var lbCodigo: UILabel!
     var lenOutput = [0]
@@ -101,6 +105,32 @@ class VisualCodeViewController: UIViewController {
             
         }
         
+        if funcSelecc.tituloFunc == "Funcion 1"{
+            cteVar1 = "10"
+            cteVar2 = "15"
+            cteVar3 = "20"
+            auxCte1 = "10"
+            auxCte2 = "15"
+            auxCte3 = "20"
+        } else {
+            if funcSelecc.tituloFunc == "Funcion 2"{
+                cteVar1 = "12"
+                cteVar2 = "3"
+                cteVar3 = "9"
+                cteVar4 = "36"
+                cteVar5 = "6"
+                cteVar6 = "2"
+                auxCte1 = "12"
+                auxCte2 = "3"
+                auxCte3 = "9"
+                auxCte4 = "36"
+                auxCte5 = "6"
+                auxCte6 = "2"
+            } else {
+                //Funcion 3
+            }
+        }
+        
         lbTituloFunc.text = funcSelecc.tituloFunc
         
         lbVariable1.text = lbMain
@@ -136,18 +166,23 @@ class VisualCodeViewController: UIViewController {
         cteVar1 = auxCte1
         cteVar2 = auxCte2
         cteVar3 = auxCte3
+        cteVar4 = auxCte4
+        cteVar5 = auxCte5
+        cteVar6 = auxCte6
         tfVariable1_Func2.isUserInteractionEnabled = true
         tfVariable2_Func2.isUserInteractionEnabled = true
         tfVariable3_Func2.isUserInteractionEnabled = true
         tfVariable4_Func2.isUserInteractionEnabled = true
         tfVariable5_Func2.isUserInteractionEnabled = true
         tfVariable6_Func2.isUserInteractionEnabled = true
-        tfVariable1_Func2.backgroundColor = UIColor(named: "white")
-        tfVariable2_Func2.backgroundColor = UIColor(named: "white")
-        tfVariable3_Func2.backgroundColor = UIColor(named: "white")
-        tfVariable4_Func2.backgroundColor = UIColor(named: "white")
-        tfVariable5_Func2.backgroundColor = UIColor(named: "white")
-        tfVariable6_Func2.backgroundColor = UIColor(named: "white")
+        tfVariable1_Func2.backgroundColor = UIColor(red:1 , green: 1, blue: 1, alpha: 1)
+        tfVariable2_Func2.backgroundColor = UIColor(red:1 , green: 1, blue: 1, alpha: 1)
+        tfVariable3_Func2.backgroundColor = UIColor(red:1 , green: 1, blue: 1, alpha: 1)
+        tfVariable4_Func2.backgroundColor = UIColor(red:1 , green: 1, blue: 1, alpha: 1)
+        tfVariable5_Func2.backgroundColor = UIColor(red:1 , green: 1, blue: 1, alpha: 1)
+        tfVariable6_Func2.backgroundColor = UIColor(red:1 , green: 1, blue: 1, alpha: 1)
+              
+        
         
     }
     
@@ -203,19 +238,19 @@ class VisualCodeViewController: UIViewController {
                 print("Esta linea mide ", string.count)
                 break
             case 4:
-                string.append("\nSe llama calcular con los parametros ")
+                string.append("\nSe llama calcular con los parametros Valor_1: ")
                 string.append(cteVar1)
-                string.append(" , ")
+                string.append(" ,Valor_2: ")
                 string.append(cteVar2)
-                string.append(" , ")
+                string.append(" ,Valor_3: ")
                 string.append(cteVar3)
                 break
             case 5:
-                string.append("\nEntra calcular con los parametros ")
+                string.append("\nEntra a calcular con los parametros dato_1: ")
                 string.append(cteVar1)
-                string.append(" , ")
+                string.append(" ,dato_2: ")
                 string.append(cteVar2)
-                string.append(" , ")
+                string.append(" ,dato_3: ")
                 string.append(cteVar3)
                 break
             
@@ -249,6 +284,102 @@ class VisualCodeViewController: UIViewController {
             lenOutput.append(string.count)
             print(lenOutput)
         } else {
+            //funcion 2
+            if funcSelecc.tituloFunc == "Funcion 2"{
+                switch linea - 1{
+                case 1:
+                    string.append("Iniciando simulacion ....\nValor_1 = ")
+                    string.append(cteVar1)
+                    print("Esta linea mide ", string.count)
+                    break
+                    
+                case 2:
+                    string.append("\nValor_2 = ")
+                    string.append(cteVar2)
+                    print("Esta linea mide ", string.count)
+                    break
+                
+                case 3:
+                    string.append("\nValor_3 = ")
+                    string.append(cteVar3)
+                    print("Esta linea mide ", string.count)
+                    break
+                case 4:
+                    string.append("\nSe llama recalcula con los parametros valor_2 = ")
+                    string.append(cteVar2)
+                    string.append(" ,valor_3 = ")
+                    string.append(cteVar3)
+                    string.append(" ,valor_1 = ")
+                    string.append(cteVar1)
+                    break
+                case 5:
+                    string.append("\nEntra a recalcular con los parametros dato_3 = ")
+                    string.append(cteVar2)
+                    string.append(" ,dato_1 = ")
+                    string.append(cteVar3)
+                    string.append(" ,dato_2 = ")
+                    string.append(cteVar1)
+                    break
+                
+                case 6:
+                    string.append("\nDato_1 =  ")
+                    string.append(cteVar3)
+                    string.append(" ,Dato_2 = ")
+                    string.append(cteVar1)
+                    string.append(" ,Dato_3 = ")
+                    string.append(cteVar2)
+                    break
+                    
+                case 7:
+                    string.append("\ndato_2 = ")
+                    string.append(String(Float(cteVar2)! +  ( Float(cteVar4)! / Float(cteVar5)!) ) )
+                    break
+                    
+                case 8:
+                    string.append("\ndato_1 = ")
+                    string.append(String(Float(cteVar1)! * Float(cteVar6)!))
+                    break
+                    
+                case 9:
+                    string.append("\nSe regresa a la funcion anterior con valor de: dato_1 = ")
+                    string.append(String(Float(cteVar1)! * Float(cteVar6)!))
+                    string.append(" ,dato_2 = ")
+                    string.append(String(Float(cteVar2)! +  ( Float(cteVar4)! / Float(cteVar5)!) ) )
+                    string.append(" ,dato_3 = ")
+                    string.append(cteVar2)
+                    break
+                    
+                case 10:
+                    string.append("\nvalor_1 = ")
+                    string.append(String(Float(cteVar1)! * Float(cteVar6)!))
+                    string.append(" ,valor_2 = ")
+                    string.append(String(Float(cteVar2)! +  ( Float(cteVar4)! / Float(cteVar5)!) ) )
+                    string.append(" ,valor_3 = ")
+                    string.append(cteVar2)
+                    break
+                    
+                case 11:
+                    string.append("\nValor_1 es = ")
+                    string.append(String(Float(cteVar1)! * Float(cteVar6)!))
+                    string.append(" Valor_2 es = ")
+                    string.append(String(Float(cteVar2)! +  ( Float(cteVar4)! / Float(cteVar5)!) ) )
+                    string.append(" Valor_3 es = ")
+                    string.append(cteVar2)
+                    break
+                    
+                case 12:
+                    string.append("\nDato3 es = ")
+                    string.append(cteVar2)
+                    break
+                    
+                default:
+                    string.append("\nespero funcione")
+                }
+                lenOutput.append(string.count)
+                print(lenOutput)
+            } else {
+                //Funcion 3
+            }
             
         }
         
@@ -272,10 +403,23 @@ class VisualCodeViewController: UIViewController {
  
     
     func asigna(){
-        cteVar1 = tfVariable1_Func2.text!
-        cteVar2 = tfVariable2_Func2.text!
-        cteVar3 = tfVariable3_Func2.text!
         
+        if funcSelecc.tituloFunc == "Funcion 1"{
+            cteVar1 = tfVariable1_Func2.text!
+            cteVar2 = tfVariable2_Func2.text!
+            cteVar3 = tfVariable3_Func2.text!
+        } else {
+            if funcSelecc.tituloFunc == "Funcion 2"{
+                cteVar1 = tfVariable1_Func2.text!
+                cteVar2 = tfVariable2_Func2.text!
+                cteVar3 = tfVariable3_Func2.text!
+                cteVar4 = tfVariable4_Func2.text!
+                cteVar5 = tfVariable5_Func2.text!
+                cteVar6 = tfVariable6_Func2.text!
+            } else {
+                //Funcion 3
+            }
+        }
     }
     
     
@@ -336,17 +480,18 @@ class VisualCodeViewController: UIViewController {
                     numAbajo = numAbajo + 1
                     if estado == 1{
                         tfVariable1_Func2.isUserInteractionEnabled = false
-                        tfVariable1_Func2.backgroundColor = codeColor4
+                        tfVariable1_Func2.backgroundColor = codeColor6
                         tfVariable2_Func2.isUserInteractionEnabled = false
-                        tfVariable2_Func2.backgroundColor = codeColor4
+                        tfVariable2_Func2.backgroundColor = codeColor6
                         tfVariable3_Func2.isUserInteractionEnabled = false
-                        tfVariable3_Func2.backgroundColor = codeColor4
+                        tfVariable3_Func2.backgroundColor = codeColor6
                         tfVariable4_Func2.isUserInteractionEnabled = false
-                        tfVariable4_Func2.backgroundColor = codeColor4
+                        tfVariable4_Func2.backgroundColor = codeColor6
                         tfVariable5_Func2.isUserInteractionEnabled = false
-                        tfVariable5_Func2.backgroundColor = codeColor4
+                        tfVariable5_Func2.backgroundColor = codeColor6
                         tfVariable6_Func2.isUserInteractionEnabled = false
-                        tfVariable5_Func2.backgroundColor = codeColor4
+                        tfVariable5_Func2.backgroundColor = codeColor6
+                        
                     }
                 }
             } else {
@@ -414,7 +559,7 @@ class VisualCodeViewController: UIViewController {
         }
         else{
             if(!tfVariable1_Func2.isUserInteractionEnabled){
-                
+                /*
                 tfVariable1_Func2.isUserInteractionEnabled = true
                 tfVariable1_Func2.backgroundColor = UIColor(named: "white")
                 tfVariable2_Func2.isUserInteractionEnabled = true
@@ -427,6 +572,8 @@ class VisualCodeViewController: UIViewController {
                 tfVariable5_Func2.backgroundColor = UIColor(named: "white")
                 tfVariable6_Func2.isUserInteractionEnabled = true
                 tfVariable5_Func2.backgroundColor = UIColor(named: "white")
+                 */
+                reinicia()
             }
         }
     }
@@ -441,7 +588,7 @@ class VisualCodeViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "mostrarGlosarioFuncion"{
-        let vista = segue.destination as! ViewControllerGlosario
+        let vista = segue.destination as! ViewControllerGlosarioFunciones
             
         vista.glosColor1 = codeColor1
         vista.glosColor2 = codeColor2

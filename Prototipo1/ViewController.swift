@@ -19,7 +19,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var listaFunciones = [
         Funciones(tituloFunc: "Funcion 1", llamadoFuncs : [6,8], largos : [60,140,130,130,130,350,280,265,350,480,300]),
-        Funciones(tituloFunc: "Funcion 2", llamadoFuncs : [5,10], largos : [140,140,140,140,480,275,540,215,200,240,480,580,230])
+        Funciones(tituloFunc: "Funcion 2", llamadoFuncs : [6,11], largos : [60,140,140,140,140,480,275,540,215,200,240,480,580,230])
     ]
     
     
@@ -133,10 +133,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let funcion = lbFunc2Valores
                 vistaCodigo.lbMain = main
                 vistaCodigo.lbFuncsAux = funcion
-                vistaCodigo.numlineasFunc1 = 7
+                vistaCodigo.numlineasFunc1 = 8
                 vistaCodigo.numlineasFunc2 = 5
                 vistaCodigo.indexSaltos = listaFunciones[indice.row].llamadoFuncs
-                vistaCodigo.offsetmain = 46
+                vistaCodigo.offsetmain = 26
                 vistaCodigo.offsetfun = 46
             }
             vistaCodigo.funcSelecc = listaFunciones[indice.row]
