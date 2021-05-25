@@ -71,6 +71,8 @@ class VisualCodeViewController: UIViewController {
     @IBOutlet weak var control: UISegmentedControl!
     @IBOutlet weak var lbCodigo: UILabel!
     var lenOutput = [0]
+    var repintar = [[0,0]]
+    let attributes = [NSAttributedString.Key.foregroundColor: UIColor.green ]
     
     
     
@@ -160,6 +162,7 @@ class VisualCodeViewController: UIViewController {
         saltosCodigo = [-1]
         lenOutput = [0]
         indexSaltos = indexSaltosAux
+        main = true
         lbCodigo.text = ""
         lbshadow.isHidden = true
         lbshadow.frame.origin.x = CGFloat(xmain)
@@ -182,7 +185,7 @@ class VisualCodeViewController: UIViewController {
         tfVariable4_Func2.backgroundColor = UIColor(red:1 , green: 1, blue: 1, alpha: 1)
         tfVariable5_Func2.backgroundColor = UIColor(red:1 , green: 1, blue: 1, alpha: 1)
         tfVariable6_Func2.backgroundColor = UIColor(red:1 , green: 1, blue: 1, alpha: 1)
-              
+        repintar = [[0,0]]
         
         
     }
@@ -218,10 +221,6 @@ class VisualCodeViewController: UIViewController {
         
         var string = lbCodigo.text!
         let estado = control.selectedSegmentIndex
-        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.green ]
-        let attributes2 = [NSAttributedString.Key.foregroundColor: UIColor.white ]
-        var string2 = ""
-        var string3 = NSAttributedString()
         var string4 = NSAttributedString()
         if estado == 1{
             asigna()
@@ -229,36 +228,26 @@ class VisualCodeViewController: UIViewController {
         if funcSelecc.tituloFunc == "Funcion 1"{
             switch linea - 1{
             case 1:
-                output = false
                 tam = 0
                 string.append("Iniciando simulacion ....\nValor_1 = ")
                 string.append(cteVar1)
                 print("Esta linea mide ", string.count)
-                
-                //string4 = NSAttributedString(string: string, attributes: attributes2)
                 break
                 
             case 2:
-                output = false
                 tam = string.count
                 string.append("\nValor_2 = ")
                 string.append(cteVar2)
                 print("Esta linea mide ", string.count)
-                
-                //string4 = NSAttributedString(string: string, attributes: attributes2)
                 break
             
             case 3:
-                output = false
                 tam = string.count
                 string.append("\nValor_3 = ")
                 string.append(cteVar3)
                 print("Esta linea mide ", string.count)
-                
-                //string4 = NSAttributedString(string: string, attributes: attributes2)
                 break
             case 4:
-                output = false
                 tam = string.count
                 string.append("\nSe llama calcular con los parametros Valor_1: ")
                 string.append(cteVar1)
@@ -266,11 +255,8 @@ class VisualCodeViewController: UIViewController {
                 string.append(cteVar2)
                 string.append(" ,Valor_3: ")
                 string.append(cteVar3)
-                
-                //string4 = NSAttributedString(string: string, attributes: attributes2)
                 break
             case 5:
-                output = false
                 tam = string.count
                 string.append("\nEntra a calcular con los parametros dato_1: ")
                 string.append(cteVar1)
@@ -278,26 +264,18 @@ class VisualCodeViewController: UIViewController {
                 string.append(cteVar2)
                 string.append(" ,dato_3: ")
                 string.append(cteVar3)
-                
-                //string4 = NSAttributedString(string: string, attributes: attributes2)
                 break
             
             case 6:
-                output = false
                 tam = string.count
                 string.append("\nSe regresa a la funcion anterior con valor de retorno igual a ")
                 string.append(String(Float(cteVar1)! + Float(cteVar2)! + Float(cteVar3)!))
-                
-                //string4 = NSAttributedString(string: string)
                 break
                 
             case 7:
-                output = false
                 tam = string.count
                 string.append("\nValor_4 = ")
                 string.append(String(Float(cteVar1)! + Float(cteVar2)! + Float(cteVar3)!))
-                
-                //string4 = NSAttributedString(string: string)
                 break
                 
             case 8:
@@ -309,13 +287,7 @@ class VisualCodeViewController: UIViewController {
                 string.append(cteVar2)
                 string.append(" ")
                 string.append(cteVar3)
-                
-                //string.append(string2)
-                output = true
-                
-                //string4 = NSAttributedString(string: string)
-                
-                //string.append(string3)
+                repintar.append([tam,string.count - tam])
                 
                 break
                 
@@ -325,7 +297,7 @@ class VisualCodeViewController: UIViewController {
                 string.append("\nLa suma es igual --> ")
                 string.append(String(Float(cteVar1)! + Float(cteVar2)! + Float(cteVar3)!))
                 
-                output = true
+                repintar.append([tam,string.count - tam])
                 
                 break
                 
@@ -340,7 +312,6 @@ class VisualCodeViewController: UIViewController {
                 switch linea - 1{
                 case 1:
                     tam = 0
-                    output = false
                     string.append("Iniciando simulacion ....\nValor_1 = ")
                     string.append(cteVar1)
                     print("Esta linea mide ", string.count)
@@ -348,7 +319,6 @@ class VisualCodeViewController: UIViewController {
                     
                 case 2:
                     tam = string.count
-                    output = false
                     string.append("\nValor_2 = ")
                     string.append(cteVar2)
                     print("Esta linea mide ", string.count)
@@ -356,14 +326,12 @@ class VisualCodeViewController: UIViewController {
                 
                 case 3:
                     tam = string.count
-                    output = false
                     string.append("\nValor_3 = ")
                     string.append(cteVar3)
                     print("Esta linea mide ", string.count)
                     break
                 case 4:
                     tam = string.count
-                    output = false
                     string.append("\nSe llama recalcula con los parametros valor_2 = ")
                     string.append(cteVar2)
                     string.append(" ,valor_3 = ")
@@ -373,7 +341,6 @@ class VisualCodeViewController: UIViewController {
                     break
                 case 5:
                     tam = string.count
-                    output = false
                     string.append("\nEntra a recalcula con los parametros dato_3 = ")
                     string.append(cteVar2)
                     string.append(" ,dato_1 = ")
@@ -384,18 +351,18 @@ class VisualCodeViewController: UIViewController {
                 
                 case 6:
                     tam = string.count
-                    output = true
                     string.append("\nDato_1 =  ")
                     string.append(cteVar3)
                     string.append(" ,Dato_2 = ")
                     string.append(cteVar1)
                     string.append(" ,Dato_3 = ")
                     string.append(cteVar2)
+                    
+                    repintar.append([tam,string.count - tam])
                     break
                     
                 case 7:
                     tam = string.count
-                    output = false
                     string.append("\ndato_2 = ")
                     string.append(String(Float(cteVar2)! +  ( Float(cteVar4)! / Float(cteVar5)!) ) )
                     break
@@ -409,7 +376,6 @@ class VisualCodeViewController: UIViewController {
                     
                 case 9:
                     tam = string.count
-                    output = false
                     string.append("\nSe regresa a la funcion anterior con valor de: dato_1 = ")
                     string.append(String(Float(cteVar1)! * Float(cteVar6)!))
                     string.append(" ,dato_2 = ")
@@ -420,7 +386,6 @@ class VisualCodeViewController: UIViewController {
                     
                 case 10:
                     tam = string.count
-                    output = false
                     string.append("\nvalor_1 = ")
                     string.append(String(Float(cteVar1)! * Float(cteVar6)!))
                     string.append(" ,valor_2 = ")
@@ -431,20 +396,22 @@ class VisualCodeViewController: UIViewController {
                     
                 case 11:
                     tam = string.count
-                    output = true
                     string.append("\nValor_1 es = ")
                     string.append(String(Float(cteVar1)! * Float(cteVar6)!))
                     string.append(" Valor_2 es = ")
                     string.append(String(Float(cteVar2)! +  ( Float(cteVar4)! / Float(cteVar5)!) ) )
                     string.append(" Valor_3 es = ")
                     string.append(cteVar2)
+                    
+                    repintar.append([tam,string.count - tam])
                     break
                     
                 case 12:
                     tam = string.count
-                    output = true
                     string.append("\nDato3 es = ")
                     string.append(cteVar2)
+                    
+                    repintar.append([tam,string.count - tam])
                     break
                     
                 default:
@@ -460,28 +427,21 @@ class VisualCodeViewController: UIViewController {
         
         let combination = NSMutableAttributedString(string: string)
         
-        //combination.append(string3)
         combination.append(string4)
         var start = lenOutput.last!
         
-        
-        if output {
-                        
-            start = start - tam
-            print("---start---")
-            print(tam)
-            print(start)
-            print("------------")
-             
+            if repintar.count > 1{
+                for i in 0..<(repintar.count){
+                    if repintar[i][0] != 0{
+                        combination.addAttributes(attributes, range: NSRange(location: repintar[i][0], length: repintar[i][1]))
+                        lbCodigo.attributedText = combination
+                    }
+                }
+            }
+            else{
+               lbCodigo.attributedText = combination
+            }
             
-            combination.addAttributes(attributes, range: NSRange(location: tam, length: start))
-            lbCodigo.attributedText = combination
-        } else {
-             
-            combination.addAttributes(attributes2, range: NSRange(location: 0, length: start))
-            
-            lbCodigo.attributedText = combination
-        }
     }
     
     func hayDatos() -> Bool{
@@ -522,7 +482,10 @@ class VisualCodeViewController: UIViewController {
     
     @IBAction func siguienteLinea(_ sender: Any) {
         
-        if numAbajo == 0 && hayDatos(){
+        if numAbajo == 0{
+            lbshadow.isHidden = false
+        }
+        if hayDatos(){
             lbshadow.isHidden = false
         }
 
@@ -645,13 +608,39 @@ class VisualCodeViewController: UIViewController {
             }
             if lenOutput.count > 1{
                 var aux = lbCodigo.text!
-                print(aux)
-                print(lenOutput, " / ",  lenOutput[lenOutput.count - 2]+1, lenOutput[lenOutput.count - 1])
+                
                 for _ in lenOutput[lenOutput.count - 2]+1 ... lenOutput[lenOutput.count - 1]{
                     aux.removeLast()
                 }
+                let combination = NSMutableAttributedString(string: aux)
+                if repintar.count > 1{
+                //Aqui se entra cuando la linea a borrar sea verde
+                if aux.count == repintar[repintar.count-1][0]{
+                    repintar.popLast()
+                    for i in 0..<(repintar.count){
+                        if repintar[i][0] != 0{
+                            combination.addAttributes(attributes, range: NSRange(location: repintar[i][0], length: repintar[i][1]))
+                            lbCodigo.attributedText = combination
+                        }
+                        else{
+                            lbCodigo.attributedText = combination
+                        }
+                    }
+                }
+                //Vamos a borrar linea blanca pero hay verdes
+                else{
+                    for i in 0..<(repintar.count){
+                        if repintar[i][0] != 0{
+                            combination.addAttributes(attributes, range: NSRange(location: repintar[i][0], length: repintar[i][1]))
+                            lbCodigo.attributedText = combination
+                        }
+                    }
+                }
+                }
+                else{
+                   lbCodigo.attributedText = combination
+                }
                 lenOutput.popLast()
-                lbCodigo.text = aux
             }
         }
         else{
