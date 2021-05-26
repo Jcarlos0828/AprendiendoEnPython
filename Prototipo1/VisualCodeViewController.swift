@@ -4,38 +4,51 @@
 //
 //  Created by user190015 on 4/17/21.
 //
+//  Proyecto final desarrollado por:
+//    - Jose Carlos del Castillo Estrada | A00822554
+//    - Adolfo Benjamin Lerma Villalobos | A00822029
+//
 
 import UIKit
 
 class VisualCodeViewController: UIViewController {
 
     @IBOutlet weak var lbTituloFunc: UILabel!
+    
+    //Variables que miden cuantas lineas de texto hay, para saber cuando saltar
     var numlineasFunc1 = 0
     var numlineasFunc2 = 0
-    var saltosCodigo = [-1]
+    var numlineastotales = 0
     
-    //Variables del shadow que indica "cursor" de linea actual
+    //Variables usadas para llevar el control de a donde saltar para cuando avanza y retrocede la funcion
+    var indexSaltos : [Int] = []
+    var saltosCodigo = [-1]
+    var indexSaltosAux : [Int] = []
+    
+    //Variables del shadow que indica el "cursor" de linea actual
     @IBOutlet weak var lbshadow: UILabel!
     var xmain = 0
     var xfun = 0
     var ymain = 0
     var yfun = 0
     var numAbajo = 0
-    
-    var numlineastotales = 0
     var tempymain = CGFloat()
     var main = true
-    var cambio = false
     var offsetmain = 0
     var offsetfun = 0
     var llamadamainy = 0
     
+    //Variables de los colores presentes que son paleta de color (por default rojo pero nunca se deberia ver)
     var codeColor1 = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
     var codeColor2 = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
     var codeColor3 = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
     var codeColor4 = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
     var codeColor5 = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
+    
+    //Y gris que es el bloqueo de celda en modo practica
     var codeColor6 = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
+    
+    //Objetos presente en pantalla
     @IBOutlet weak var fondo: UIView!
     @IBOutlet weak var consola: UIView!
     @IBOutlet weak var barraMedio: UIView!
@@ -43,13 +56,13 @@ class VisualCodeViewController: UIViewController {
     @IBOutlet weak var flechaDer: UIButton!
     @IBOutlet weak var reset: UIButton!
     
-    
+    //Espacios para mostrar el texto que representa el codigo de la funcion
     @IBOutlet weak var lbVariable1: UILabel!
     @IBOutlet weak var lbVariable2: UILabel!
+    var lbMain : String!
+    var lbFuncsAux : String!
     
-    
-    
-    
+    //Variables de text fields para modo practica y sus auxiliares para cambio de datos
     @IBOutlet weak var tfVariable1_Func2: UITextField!
     var cteVar1 = "0"
     var auxCte1 = "0"
@@ -68,26 +81,23 @@ class VisualCodeViewController: UIViewController {
     @IBOutlet weak var tfVariable6_Func2: UITextField!
     var cteVar6 = "0"
     var auxCte6 = "0"
-    @IBOutlet weak var control: UISegmentedControl!
+    
+    //Variables de manejo de output en el espacio de la consola
     @IBOutlet weak var lbCodigo: UILabel!
-    var lenOutput = [0]
-    var repintar = [[0,0]]
-    let attributes = [NSAttributedString.Key.foregroundColor: UIColor.green ]
+    var lenOutput = [0] //Guarda la longitud total del output en cada iteracion
+    var repintar = [[0,0]] //El valor de la izq. indica index de texto donde empieza la linea, el de la der. indica la longitud del texto a pintar
+    let attributes = [NSAttributedString.Key.foregroundColor: UIColor.green]
     
+    //Switch para el cambio de modo
+    @IBOutlet weak var control: UISegmentedControl!
     
-    
+    //Variable que recibe propiedades de las funciones
     var funcSelecc : Funciones!
-    var indexSaltos : [Int] = []
-    var indexSaltosAux : [Int] = []
-    var lbMain : String!
-    var lbFuncsAux : String!
-    var lbFuncVal1 : String!
-    var lbFuncVal2 : String!
-    var output = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Establecer espacio para que aparezca el cursor
         xmain = Int(lbVariable1.frame.origin.x)
         xfun = Int(lbVariable2.frame.origin.x)
         ymain = Int(lbVariable1.frame.origin.y) + offsetmain
@@ -95,19 +105,19 @@ class VisualCodeViewController: UIViewController {
         
         llamadamainy = ymain + (20 * numlineasFunc1)
         
+        //Guardar registro de donde se hacen los saltos para cuando se llame reinicia()
         indexSaltosAux = indexSaltos
-        //print(xmain)
-        //print(ymain)
         
         
+        //Establecer posiciones para mover el cursor
         if numAbajo == 0{
             lbshadow.isHidden = true
             lbshadow.frame.origin.x = CGFloat(xmain)
             lbshadow.frame.origin.y = CGFloat(llamadamainy)
             numlineastotales = numlineasFunc1 + numlineasFunc2
-            
         }
         
+        //Estabelcer las constantes del modo "simulacion" para funcion 1 o 2
         if funcSelecc.tituloFunc == "Funcion 1"{
             cteVar1 = "10"
             cteVar2 = "15"
@@ -129,16 +139,15 @@ class VisualCodeViewController: UIViewController {
                 auxCte4 = "36"
                 auxCte5 = "6"
                 auxCte6 = "2"
-            } else {
-                //Funcion 3
             }
         }
         
+        //Escribir texto estatico en pantalla
         lbTituloFunc.text = funcSelecc.tituloFunc
-        
         lbVariable1.text = lbMain
         lbVariable2.text = lbFuncsAux
         
+        //Ocultar text fields del modo practica porque se empieza en modo simulacion
         tfVariable1_Func2.isHidden = true
         tfVariable2_Func2.isHidden = true
         tfVariable3_Func2.isHidden = true
@@ -146,6 +155,7 @@ class VisualCodeViewController: UIViewController {
         tfVariable5_Func2.isHidden = true
         tfVariable6_Func2.isHidden = true
         
+        //Ponerle color de la paleta recibida a los objetos en pantalla
         view.backgroundColor = codeColor1
         fondo.backgroundColor = codeColor2
         barraMedio.backgroundColor = codeColor3
@@ -157,6 +167,7 @@ class VisualCodeViewController: UIViewController {
         
     }
     
+    //Establecer todas las variables que cambien a sus valores originales
     func reinicia(){
         numAbajo = 0
         saltosCodigo = [-1]
@@ -186,16 +197,17 @@ class VisualCodeViewController: UIViewController {
         tfVariable5_Func2.backgroundColor = UIColor(red:1 , green: 1, blue: 1, alpha: 1)
         tfVariable6_Func2.backgroundColor = UIColor(red:1 , green: 1, blue: 1, alpha: 1)
         repintar = [[0,0]]
-        
-        
     }
     
+    //Boton del centro
     @IBAction func reset(_ sender: UIButton) {
         reinicia()
     }
     
+    //Funcion del segmented controller para cambio de modos
     @IBAction func cambiaModo(_ sender: UISegmentedControl) {
         
+        //Habilitar text fields dependiendo del modo
         tfVariable1_Func2.isHidden = !tfVariable1_Func2.isHidden
         tfVariable2_Func2.isHidden = !tfVariable2_Func2.isHidden
         tfVariable3_Func2.isHidden = !tfVariable3_Func2.isHidden
@@ -214,18 +226,24 @@ class VisualCodeViewController: UIViewController {
         
     }
     
-    
+    //Funcion invocada cada vez que se presiona el boton de "avanzar" para obtener el output
     func mostrarEnPantalla(linea : Int){
         
+        //Variables para registrar texto de output
         var tam = 0
-        
         var string = lbCodigo.text!
         let estado = control.selectedSegmentIndex
-        var string4 = NSAttributedString()
+        
+        //Variable que le cambia el texto a color verde para indicar "prints"
+        let string4 = NSAttributedString()
+        
+        //Activar text fields si estamos en modo practica
         if estado == 1{
             asigna()
         }
         if funcSelecc.tituloFunc == "Funcion 1"{
+            
+            //Caad caso hace match con la linea en la que estamos
             switch linea - 1{
             case 1:
                 tam = 0
@@ -247,6 +265,7 @@ class VisualCodeViewController: UIViewController {
                 string.append(cteVar3)
                 print("Esta linea mide ", string.count)
                 break
+                
             case 4:
                 tam = string.count
                 string.append("\nSe llama calcular con los parametros Valor_1: ")
@@ -256,6 +275,7 @@ class VisualCodeViewController: UIViewController {
                 string.append(" ,Valor_3: ")
                 string.append(cteVar3)
                 break
+                
             case 5:
                 tam = string.count
                 string.append("\nEntra a calcular con los parametros dato_1: ")
@@ -279,7 +299,6 @@ class VisualCodeViewController: UIViewController {
                 break
                 
             case 8:
-                
                 tam = string.count
                 string.append("\nSe suman los valores --> ")
                 string.append(cteVar1)
@@ -288,15 +307,12 @@ class VisualCodeViewController: UIViewController {
                 string.append(" ")
                 string.append(cteVar3)
                 repintar.append([tam,string.count - tam])
-                
                 break
                 
             case 9:
-                
                 tam = string.count
                 string.append("\nLa suma es igual --> ")
                 string.append(String(Float(cteVar1)! + Float(cteVar2)! + Float(cteVar3)!))
-                
                 repintar.append([tam,string.count - tam])
                 
                 break
@@ -304,8 +320,8 @@ class VisualCodeViewController: UIViewController {
             default:
                 string.append("\nespero funcione")
             }
+            
             lenOutput.append(string.count)
-            print(lenOutput)
         } else {
             //funcion 2
             if funcSelecc.tituloFunc == "Funcion 2"{
@@ -369,7 +385,6 @@ class VisualCodeViewController: UIViewController {
                     
                 case 8:
                     tam = string.count
-                    output = false
                     string.append("\ndato_1 = ")
                     string.append(String(Float(cteVar1)! * Float(cteVar6)!))
                     break
@@ -408,7 +423,7 @@ class VisualCodeViewController: UIViewController {
                     
                 case 12:
                     tam = string.count
-                    string.append("\nDato3 es = ")
+                    string.append("\nValor3 es = ")
                     string.append(cteVar2)
                     
                     repintar.append([tam,string.count - tam])
@@ -417,33 +432,34 @@ class VisualCodeViewController: UIViewController {
                 default:
                     string.append("\nespero funcione")
                 }
+                
                 lenOutput.append(string.count)
-                print(lenOutput)
-            } else {
-                //Funcion 3
             }
-            
         }
         
+        //Preparar el string que ya tiene el output mas reciente para mutarlo de ser necesario
         let combination = NSMutableAttributedString(string: string)
-        
         combination.append(string4)
-        var start = lenOutput.last!
         
-            if repintar.count > 1{
-                for i in 0..<(repintar.count){
-                    if repintar[i][0] != 0{
-                        combination.addAttributes(attributes, range: NSRange(location: repintar[i][0], length: repintar[i][1]))
-                        lbCodigo.attributedText = combination
-                    }
+        //repintar lleva la cuenta de cuantas lineas son de "prints" (color verde)
+        if repintar.count > 1{
+            for i in 0..<(repintar.count){
+                //Ignorar el primer arreglo que es [0,0], ya que solo es un default
+                if repintar[i][0] != 0{
+                    //Indica el rango que se va a pintar
+                    combination.addAttributes(attributes, range: NSRange(location: repintar[i][0], length: repintar[i][1]))
+                    lbCodigo.attributedText = combination
                 }
             }
-            else{
-               lbCodigo.attributedText = combination
-            }
+        }
+        //Si solo hay un arreglo en repintar, no hay lineas de "prints" aun, se pone blanco por default
+        else{
+            lbCodigo.attributedText = combination
+        }
             
     }
     
+    //Funcion que bloquea "avanzar" si no hay texto al regresar falso
     func hayDatos() -> Bool{
         if(!tfVariable1_Func2.isHidden){
             if(tfVariable1_Func2.text == "" ||  tfVariable2_Func2.text == "" || tfVariable3_Func2.text == ""){
@@ -458,9 +474,8 @@ class VisualCodeViewController: UIViewController {
         return true
     }
  
-    
+    //Funcion que guarda el valor escrito en el text field para ser calculado
     func asigna(){
-        
         if funcSelecc.tituloFunc == "Funcion 1"{
             cteVar1 = tfVariable1_Func2.text!
             cteVar2 = tfVariable2_Func2.text!
@@ -473,13 +488,11 @@ class VisualCodeViewController: UIViewController {
                 cteVar4 = tfVariable4_Func2.text!
                 cteVar5 = tfVariable5_Func2.text!
                 cteVar6 = tfVariable6_Func2.text!
-            } else {
-                //Funcion 3
             }
         }
     }
     
-    
+    //Funcion que se activa con el boton de avanzar
     @IBAction func siguienteLinea(_ sender: Any) {
         
         if numAbajo == 0{
@@ -490,9 +503,12 @@ class VisualCodeViewController: UIViewController {
         }
 
         let estado = control.selectedSegmentIndex
+        //Checa el modo en el que estamos para hacer activaciones de text fields
         if (estado == 1 && hayDatos()) || estado == 0{
+            //Solo avanzar si hay mas output por mostrar
             if(numAbajo < numlineastotales){
                 
+                //Si es el primer output se reposiciona el cursor para empezar a mostrar
                 if(numAbajo != 0){
                     if(numAbajo == 1){
                         lbshadow.frame.origin.y = CGFloat(ymain)
@@ -500,22 +516,21 @@ class VisualCodeViewController: UIViewController {
                     numAbajo = numAbajo + 1
                     
                     mostrarEnPantalla(linea: numAbajo)
-                    print(numAbajo)
                     
                     lbshadow.frame = CGRect(x: lbshadow.frame.minX, y: lbshadow.frame.minY, width: CGFloat(funcSelecc.largos[numAbajo]), height: lbshadow.frame.height)
-                    //print(lbshadow.frame)
-                    // >= funcSelecc.llamadoFuncs[0]
+                    
+                    //Section used to know if the cursor is in the main function or the auxiliar one
                     if main {
+                        
+                        //Identificar si vamos a salir de la funcion main
                         if(numAbajo >= indexSaltos[0]){
                             saltosCodigo.insert( indexSaltos.removeFirst(), at: 0)
                             main = false
                             tempymain = lbshadow.frame.origin.y
                             lbshadow.frame.origin.y = CGFloat(yfun)
-                            //print("ya se movio la sombra, tempymain = ", tempymain)
                         } else {
                             UIView.animate(withDuration: 1){
                                 self.lbshadow.frame.origin.y += 20
-                                //print(self.lbshadow.frame.origin.y)
                             }
                         }
                     } else {
@@ -530,7 +545,6 @@ class VisualCodeViewController: UIViewController {
                         else{
                             UIView.animate(withDuration: 1){
                                 self.lbshadow.frame.origin.y += 20
-                                //print(self.lbshadow.frame.origin.y)
                             }
                         }
                     }
@@ -551,37 +565,26 @@ class VisualCodeViewController: UIViewController {
                         tfVariable5_Func2.backgroundColor = codeColor6
                         tfVariable6_Func2.isUserInteractionEnabled = false
                         tfVariable6_Func2.backgroundColor = codeColor6
-                        
                     }
                 }
-            } else {
-                //Esta no la quise borrar porque en la funcion reinicia le puse otro valor, esta bien?
-                //lbshadow.frame.origin.y = CGFloat(ymain + llamadamainy)
+            }
+            else {
                 reinicia()
             }
         }
     }
     
-    
-    
+    //Funcion invocada cada vez que se presiona el boton de "atras" para obtener el output
     @IBAction func lineaAtras(_ sender: Any) {
-        
-        let estado = control.selectedSegmentIndex
-        
         if numAbajo > 0 {
             numAbajo = numAbajo - 1
-            
-            print(numAbajo)
+            //Obtener el ancho de la linea a la que vamos a retroceder
             lbshadow.frame = CGRect(x: lbshadow.frame.minX, y: lbshadow.frame.minY, width: CGFloat(funcSelecc.largos[numAbajo]), height: lbshadow.frame.height)
             
             if numAbajo == 0{
                 reinicia()
-                /*
-                lbshadow.isHidden = true
-                lbshadow.frame.origin.y = CGFloat(ymain + llamadamainy)
-                lbCodigo.text = ""
-                indexSaltos = indexSaltosAux*/
             } else {
+                //Borrar los saltos avanzados
                 if !main {
                     if numAbajo < saltosCodigo[0] {
                         indexSaltos.insert(saltosCodigo.removeFirst(), at: 0)
@@ -594,6 +597,7 @@ class VisualCodeViewController: UIViewController {
                     }
                     
                 } else {
+                    //Borrar los saltos avanzados
                     if numAbajo < saltosCodigo[0]{
                         indexSaltos.insert(saltosCodigo.removeFirst(), at: 0)
                         main = false
@@ -608,12 +612,15 @@ class VisualCodeViewController: UIViewController {
                     }
                 }
             }
+            //Checa si hay lineas para borrar
             if lenOutput.count > 1{
                 var aux = lbCodigo.text!
                 
+                //Identificar el largo del string que vamos a borrar
                 for _ in lenOutput[lenOutput.count - 2]+1 ... lenOutput[lenOutput.count - 1]{
                     aux.removeLast()
                 }
+                
                 let combination = NSMutableAttributedString(string: aux)
                 if repintar.count > 1{
                 //Aqui se entra cuando la linea a borrar sea verde
@@ -629,7 +636,7 @@ class VisualCodeViewController: UIViewController {
                         }
                     }
                 }
-                //Vamos a borrar linea blanca pero hay verdes
+                //Vamos a borrar linea blanca pero tambien hay verdes
                 else{
                     for i in 0..<(repintar.count){
                         if repintar[i][0] != 0{
@@ -639,6 +646,7 @@ class VisualCodeViewController: UIViewController {
                     }
                 }
                 }
+                //Pintar puras lineas blancas
                 else{
                    lbCodigo.attributedText = combination
                 }
@@ -647,33 +655,15 @@ class VisualCodeViewController: UIViewController {
         }
         else{
             if(!tfVariable1_Func2.isUserInteractionEnabled){
-                /*
-                tfVariable1_Func2.isUserInteractionEnabled = true
-                tfVariable1_Func2.backgroundColor = UIColor(named: "white")
-                tfVariable2_Func2.isUserInteractionEnabled = true
-                tfVariable2_Func2.backgroundColor = UIColor(named: "white")
-                tfVariable3_Func2.isUserInteractionEnabled = true
-                tfVariable3_Func2.backgroundColor = UIColor(named: "white")
-                tfVariable4_Func2.isUserInteractionEnabled = true
-                tfVariable4_Func2.backgroundColor = UIColor(named: "white")
-                tfVariable5_Func2.isUserInteractionEnabled = true
-                tfVariable5_Func2.backgroundColor = UIColor(named: "white")
-                tfVariable6_Func2.isUserInteractionEnabled = true
-                tfVariable5_Func2.backgroundColor = UIColor(named: "white")
-                 */
                 reinicia()
             }
         }
     }
-    
-    
-    @IBAction func unwindGlosarioFuncion(segue: UIStoryboardSegue){
-        
-    }
 
     
     // MARK: - Navigation
-
+    
+    //Marcar el color para el glosario
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "mostrarGlosarioFuncion"{
         let vista = segue.destination as! ViewControllerGlosarioFunciones
@@ -682,6 +672,9 @@ class VisualCodeViewController: UIViewController {
         vista.glosColor2 = codeColor2
             print(codeColor1, codeColor2)
         }
-            
+    }
+    
+    @IBAction func unwindGlosarioFuncion(segue: UIStoryboardSegue){
+        
     }
 }

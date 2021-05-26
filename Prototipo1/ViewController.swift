@@ -3,10 +3,15 @@
 //  Prototipo1
 //
 //  Created by user189317 on 4/16/21.
+
+//  Proyecto final desarrollado por:
+//    - Jose Carlos del Castillo Estrada | A00822554
+//    - Adolfo Benjamin Lerma Villalobos | A00822029
 //
 
 import UIKit
 
+//Funcion que convierte RGB a un UIColor
 func UIColorFromRGB(_ rgbValue: Int) -> UIColor! {
     return UIColor(
         red: CGFloat((Float((rgbValue & 0xff0000) >> 16)) / 255.0),
@@ -17,6 +22,7 @@ func UIColorFromRGB(_ rgbValue: Int) -> UIColor! {
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
+    //Propiedades de la funcion
     var listaFunciones = [
         Funciones(tituloFunc: "Funcion 1", llamadoFuncs : [6,8], largos : [60,140,130,130,130,350,280,265,350,480,300]),
         Funciones(tituloFunc: "Funcion 2", llamadoFuncs : [6,11], largos : [60,140,140,140,140,480,275,540,215,200,240,480,580,230])
@@ -25,7 +31,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     @IBOutlet weak var tableView: UITableView!
-
+    
+    //Texto que se mostrara que indica el ejercicio que se va a realizar
     var lbFunc1Calcular = """
                       def calcular(dato_1, dato_2, dato_3):
                           return dato_1 + dato_2 + dato_3
@@ -59,7 +66,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                           print("Dato3 es = ", dato_3)
 
                       main()
-                      """ 
+                      """
+    //Establece los colores iniciales de todo el programa a la primera paleta por default
     var mainColor1 = UIColorFromRGB(0x99B998)
     var mainColor2 = UIColorFromRGB(0xFDCEAA)
     var mainColor3 = UIColorFromRGB(0xF4837D)
@@ -70,6 +78,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        tableView.reloadData()
     }
     
     // MARK: - Metodos de Data Source
@@ -85,12 +94,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 160
+        return 400
     }
     
     
     
     // MARK: - Metodos de Segue
+    //Mandamos informacion por medio de los segue
     
     @IBAction func unwwindFuncion(segue: UIStoryboardSegue){
         
@@ -117,10 +127,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             vistaCodigo.codeColor5 = mainColor5!
             
             if listaFunciones[indice.row].tituloFunc == "Funcion 1"{
+                //Establecen el texto en pantalla
                 let main = lbFunc1Main
                 let funcion = lbFunc1Calcular
                 vistaCodigo.lbMain = main
                 vistaCodigo.lbFuncsAux = funcion
+                
+                //Variables para calcular los saltos de linea para el cursor
                 vistaCodigo.numlineasFunc1 = 8
                 vistaCodigo.numlineasFunc2 = 2
                 vistaCodigo.indexSaltos = listaFunciones[indice.row].llamadoFuncs
@@ -129,10 +142,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             
             else if listaFunciones[indice.row].tituloFunc == "Funcion 2"{
+                //Establecen el texto en pantalla
                 let main = lbFunc2Main
                 let funcion = lbFunc2Valores
                 vistaCodigo.lbMain = main
                 vistaCodigo.lbFuncsAux = funcion
+                
+                //Variables para calcular los saltos de linea para el cursor
                 vistaCodigo.numlineasFunc1 = 8
                 vistaCodigo.numlineasFunc2 = 5
                 vistaCodigo.indexSaltos = listaFunciones[indice.row].llamadoFuncs
@@ -148,8 +164,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             vista.glosColor2 = mainColor2!
             
         }
+        else{
+            let vista = segue.destination as! ViewControllerColores
+            
+            vista.tCol1 = mainColor1!
+            vista.tCol2 = mainColor2!
+            vista.tCol3 = mainColor3!
+            vista.tCol4 = mainColor4!
+            vista.tCol5 = mainColor5!
+        }
     }
-
-
 }
 
