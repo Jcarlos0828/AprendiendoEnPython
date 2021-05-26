@@ -550,7 +550,7 @@ class VisualCodeViewController: UIViewController {
                         tfVariable5_Func2.isUserInteractionEnabled = false
                         tfVariable5_Func2.backgroundColor = codeColor6
                         tfVariable6_Func2.isUserInteractionEnabled = false
-                        tfVariable5_Func2.backgroundColor = codeColor6
+                        tfVariable6_Func2.backgroundColor = codeColor6
                         
                     }
                 }
@@ -575,10 +575,12 @@ class VisualCodeViewController: UIViewController {
             lbshadow.frame = CGRect(x: lbshadow.frame.minX, y: lbshadow.frame.minY, width: CGFloat(funcSelecc.largos[numAbajo]), height: lbshadow.frame.height)
             
             if numAbajo == 0{
+                reinicia()
+                /*
                 lbshadow.isHidden = true
                 lbshadow.frame.origin.y = CGFloat(ymain + llamadamainy)
                 lbCodigo.text = ""
-                indexSaltos = indexSaltosAux
+                indexSaltos = indexSaltosAux*/
             } else {
                 if !main {
                     if numAbajo < saltosCodigo[0] {
