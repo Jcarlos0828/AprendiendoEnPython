@@ -25,7 +25,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //Propiedades de la funcion
     var listaFunciones = [
         Funciones(tituloFunc: "Funcion 1", llamadoFuncs : [6,8], largos : [60,140,130,130,130,350,280,265,350,480,300]),
-        Funciones(tituloFunc: "Funcion 2", llamadoFuncs : [6,11], largos : [60,140,140,140,140,480,275,540,215,200,240,480,580,230])
+        Funciones(tituloFunc: "Funcion 2", llamadoFuncs : [6,11], largos : [60,140,140,140,140,480,275,540,215,200,240,480,580,555])
     ]
     
     
@@ -63,7 +63,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                           valor_3 = 9
                           valor_1, valor_2, valor_3 = recalcula(valor_2, valor_3, valor_1)
                           print("Valor1 es =", valor_1, " Valor2 es = ", valor_2, " Valor3 es =", valor_3)
-                          print("Dato3 es = ", dato_3)
+                          print("La suma de los valores es igual a = ", valor_1+valor_2+valor_3)
 
                       main()
                       """

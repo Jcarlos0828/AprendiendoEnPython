@@ -369,9 +369,9 @@ class VisualCodeViewController: UIViewController {
                     tam = string.count
                     string.append("\nDato_1 =  ")
                     string.append(cteVar3)
-                    string.append(" ,Dato_2 = ")
+                    string.append(", Dato_2 = ")
                     string.append(cteVar1)
-                    string.append(" ,Dato_3 = ")
+                    string.append(", Dato_3 = ")
                     string.append(cteVar2)
                     
                     repintar.append([tam,string.count - tam])
@@ -403,9 +403,9 @@ class VisualCodeViewController: UIViewController {
                     tam = string.count
                     string.append("\nvalor_1 = ")
                     string.append(String(Float(cteVar1)! * Float(cteVar6)!))
-                    string.append(" ,valor_2 = ")
+                    string.append(", valor_2 = ")
                     string.append(String(Float(cteVar2)! +  ( Float(cteVar4)! / Float(cteVar5)!) ) )
-                    string.append(" ,valor_3 = ")
+                    string.append(", valor_3 = ")
                     string.append(cteVar2)
                     break
                     
@@ -413,9 +413,9 @@ class VisualCodeViewController: UIViewController {
                     tam = string.count
                     string.append("\nValor_1 es = ")
                     string.append(String(Float(cteVar1)! * Float(cteVar6)!))
-                    string.append(" Valor_2 es = ")
+                    string.append(", Valor_2 es = ")
                     string.append(String(Float(cteVar2)! +  ( Float(cteVar4)! / Float(cteVar5)!) ) )
-                    string.append(" Valor_3 es = ")
+                    string.append(", Valor_3 es = ")
                     string.append(cteVar2)
                     
                     repintar.append([tam,string.count - tam])
@@ -423,8 +423,11 @@ class VisualCodeViewController: UIViewController {
                     
                 case 12:
                     tam = string.count
-                    string.append("\nValor3 es = ")
-                    string.append(cteVar2)
+                    string.append("\nLa suma de los valores es igual a = ")
+                    let aux = (Float(cteVar1)! * Float(cteVar6)!)
+                    let aux2 = aux + (Float(cteVar2)! +  ( Float(cteVar4)! / Float(cteVar5)!))
+                    let aux3 = aux2 + Float(cteVar2)!
+                    string.append(String(aux3))
                     
                     repintar.append([tam,string.count - tam])
                     break
