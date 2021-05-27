@@ -468,7 +468,7 @@ class VisualCodeViewController: UIViewController {
             if(tfVariable1_Func2.text == "" ||  tfVariable2_Func2.text == "" || tfVariable3_Func2.text == ""){
                 return false
             }
-            if let d1 = Double(tfVariable1_Func2.text!), let d2 = Double(tfVariable2_Func2.text!), let d3 = Double(tfVariable1_Func2.text!) {
+            if let d1 = Double(tfVariable1_Func2.text!), let d2 = Double(tfVariable2_Func2.text!), let d3 = Double(tfVariable3_Func2.text!) {
                 return true
             } else {
                 let alerta = UIAlertController(title: "Error", message: "Los campos deben de ser numericos", preferredStyle: .alert)
