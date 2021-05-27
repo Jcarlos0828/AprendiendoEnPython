@@ -468,12 +468,39 @@ class VisualCodeViewController: UIViewController {
             if(tfVariable1_Func2.text == "" ||  tfVariable2_Func2.text == "" || tfVariable3_Func2.text == ""){
                 return false
             }
+            if let d1 = Double(tfVariable1_Func2.text!), let d2 = Double(tfVariable2_Func2.text!), let d3 = Double(tfVariable1_Func2.text!) {
+                return true
+            } else {
+                let alerta = UIAlertController(title: "Error", message: "Los campos deben de ser numericos", preferredStyle: .alert)
+                
+                let accion = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                
+                alerta.addAction(accion)
+                
+                present(alerta, animated: true, completion: nil)
+                
+                return false
+            }
         }
         if(!tfVariable4_Func2.isHidden){
             if(tfVariable4_Func2.text == "" ||  tfVariable5_Func2.text == "" || tfVariable6_Func2.text == ""){
                 return false
             }
+            if let d4 = Double(tfVariable4_Func2.text!), let d5 = Double(tfVariable5_Func2.text!), let d6 = Double(tfVariable6_Func2.text!) {
+                return true
+            } else {
+                let alerta = UIAlertController(title: "Error", message: "Los campos deben de ser numericos", preferredStyle: .alert)
+                
+                let accion = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                
+                alerta.addAction(accion)
+                
+                present(alerta, animated: true, completion: nil)
+                
+                return false
+            }
         }
+        
         return true
     }
  
