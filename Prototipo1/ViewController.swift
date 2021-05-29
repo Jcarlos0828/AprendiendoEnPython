@@ -164,7 +164,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             vista.glosColor2 = mainColor2!
             
         }
-        else{
+        else if segue.identifier == "colores"{
             let vista = segue.destination as! ViewControllerColores
             
             vista.tCol1 = mainColor1!
@@ -172,6 +172,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             vista.tCol3 = mainColor3!
             vista.tCol4 = mainColor4!
             vista.tCol5 = mainColor5!
+        }
+        else if segue.identifier == "creditos"{
+            let vista = segue.destination as! ViewControllerCreditos
         }
     }
 }

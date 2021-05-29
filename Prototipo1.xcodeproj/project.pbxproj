@@ -19,6 +19,7 @@
 		B24C43682629F37800E43AF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B24C43662629F37800E43AF1 /* Main.storyboard */; };
 		B24C436A2629F37C00E43AF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B24C43692629F37C00E43AF1 /* Assets.xcassets */; };
 		B24C436D2629F37C00E43AF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B24C436B2629F37C00E43AF1 /* LaunchScreen.storyboard */; };
+		B2A8774A2662E684002AC8D4 /* ViewControllerCreditos.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A877492662E684002AC8D4 /* ViewControllerCreditos.swift */; };
 		B2CAB007262FCA5F00E7F0AC /* ViewControllerGlosario.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CAB006262FCA5F00E7F0AC /* ViewControllerGlosario.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		B24C43692629F37C00E43AF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B24C436C2629F37C00E43AF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B24C436E2629F37C00E43AF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2A877492662E684002AC8D4 /* ViewControllerCreditos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCreditos.swift; sourceTree = "<group>"; };
 		B2CAB006262FCA5F00E7F0AC /* ViewControllerGlosario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerGlosario.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,8 +80,8 @@
 				B24C43622629F37800E43AF1 /* SceneDelegate.swift */,
 				B24C43642629F37800E43AF1 /* ViewController.swift */,
 				B24C43662629F37800E43AF1 /* Main.storyboard */,
+				B2A877492662E684002AC8D4 /* ViewControllerCreditos.swift */,
 				B20CA2F92656A66800F7582E /* ViewControllerGlosarioFunciones.swift */,
-
 				4DAC242E2651E872008EB495 /* Colores.swift */,
 				B2CAB006262FCA5F00E7F0AC /* ViewControllerGlosario.swift */,
 				B24C43692629F37C00E43AF1 /* Assets.xcassets */,
@@ -165,6 +167,7 @@
 				B20CA2FA2656A66800F7582E /* ViewControllerGlosarioFunciones.swift in Sources */,
 				4D6DBCDC262B7821009C695E /* VisualCodeViewController.swift in Sources */,
 				B24C43652629F37800E43AF1 /* ViewController.swift in Sources */,
+				B2A8774A2662E684002AC8D4 /* ViewControllerCreditos.swift in Sources */,
 				4DAC242C2651E7C6008EB495 /* ViewControllerColores.swift in Sources */,
 				4D6DBCD9262B7706009C695E /* ScreenColores.swift in Sources */,
 				B24C43612629F37800E43AF1 /* AppDelegate.swift in Sources */,

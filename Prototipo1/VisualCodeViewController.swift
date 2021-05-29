@@ -386,13 +386,13 @@ class VisualCodeViewController: UIViewController {
                 case 8:
                     tam = string.count
                     string.append("\ndato_1 = ")
-                    string.append(String(Float(cteVar1)! * Float(cteVar6)!))
+                    string.append(String(  pow((Float(cteVar2)! + ( Float(cteVar4)! / Float(cteVar5)!)), Float(cteVar6)!) ))
                     break
                     
                 case 9:
                     tam = string.count
                     string.append("\nSe regresa a la funcion anterior con valor de: dato_1 = ")
-                    string.append(String(Float(cteVar1)! * Float(cteVar6)!))
+                    string.append(String(  pow((Float(cteVar2)! + ( Float(cteVar4)! / Float(cteVar5)!)), Float(cteVar6)!) ))
                     string.append(" ,dato_2 = ")
                     string.append(String(Float(cteVar2)! +  ( Float(cteVar4)! / Float(cteVar5)!) ) )
                     string.append(" ,dato_3 = ")
@@ -402,7 +402,7 @@ class VisualCodeViewController: UIViewController {
                 case 10:
                     tam = string.count
                     string.append("\nvalor_1 = ")
-                    string.append(String(Float(cteVar1)! * Float(cteVar6)!))
+                    string.append(String(  pow((Float(cteVar2)! + ( Float(cteVar4)! / Float(cteVar5)!)), Float(cteVar6)!) ))
                     string.append(", valor_2 = ")
                     string.append(String(Float(cteVar2)! +  ( Float(cteVar4)! / Float(cteVar5)!) ) )
                     string.append(", valor_3 = ")
@@ -412,7 +412,7 @@ class VisualCodeViewController: UIViewController {
                 case 11:
                     tam = string.count
                     string.append("\nValor_1 es = ")
-                    string.append(String(Float(cteVar1)! * Float(cteVar6)!))
+                    string.append(String(  pow((Float(cteVar2)! + ( Float(cteVar4)! / Float(cteVar5)!)), Float(cteVar6)!) ))
                     string.append(", Valor_2 es = ")
                     string.append(String(Float(cteVar2)! +  ( Float(cteVar4)! / Float(cteVar5)!) ) )
                     string.append(", Valor_3 es = ")
@@ -424,7 +424,7 @@ class VisualCodeViewController: UIViewController {
                 case 12:
                     tam = string.count
                     string.append("\nLa suma de los valores es igual a = ")
-                    let aux = (Float(cteVar1)! * Float(cteVar6)!)
+                    let aux = pow((Float(cteVar2)! + ( Float(cteVar4)! / Float(cteVar5)!)), Float(cteVar6)!)
                     let aux2 = aux + (Float(cteVar2)! +  ( Float(cteVar4)! / Float(cteVar5)!))
                     let aux3 = aux2 + Float(cteVar2)!
                     string.append(String(aux3))

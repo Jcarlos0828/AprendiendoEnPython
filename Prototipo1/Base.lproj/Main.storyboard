@@ -86,7 +86,21 @@
                                 <rect key="frame" x="640" y="83" width="21" height="22"/>
                                 <state key="normal" image="gearshape.fill" catalog="system"/>
                                 <connections>
-                                    <segue destination="tuQ-md-mhG" kind="presentation" id="Uc5-NV-hY3"/>
+                                    <segue destination="tuQ-md-mhG" kind="presentation" identifier="colores" id="Uc5-NV-hY3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JS4-gj-8G0">
+                                <rect key="frame" x="346" y="970" width="77" height="30"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="77" id="37Y-je-Lap"/>
+                                    <constraint firstAttribute="height" constant="30" id="AMU-in-7Md"/>
+                                </constraints>
+                                <state key="normal" title="Creditos">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="gm3-eS-YYP" kind="presentation" identifier="creditos" id="99C-vu-M7W"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -94,13 +108,16 @@
                         <color key="backgroundColor" red="0.59844803810000002" green="0.72710448500000002" blue="0.59728825090000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qdP-vq-H6R" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="9cj-1n-hiK"/>
+                            <constraint firstItem="ReN-LF-kdb" firstAttribute="leading" secondItem="JS4-gj-8G0" secondAttribute="trailing" constant="114" id="DDc-nM-j0c"/>
                             <constraint firstItem="qdP-vq-H6R" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Fae-hL-ZiC"/>
                             <constraint firstItem="Vyw-RM-wH3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="Fxv-YM-Ctc"/>
                             <constraint firstItem="4On-2l-6fb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="G9m-z9-ytA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Vyw-RM-wH3" secondAttribute="bottom" constant="35" id="Ghc-aV-H5a"/>
                             <constraint firstItem="4On-2l-6fb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UzA-1W-k8w"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ReN-LF-kdb" secondAttribute="trailing" constant="20" id="eFT-n8-Dw9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JS4-gj-8G0" secondAttribute="bottom" constant="24" id="eGZ-L1-3ZT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ReN-LF-kdb" secondAttribute="bottom" constant="20" id="nQH-fj-4jE"/>
+                            <constraint firstItem="JS4-gj-8G0" firstAttribute="leading" secondItem="Vyw-RM-wH3" secondAttribute="trailing" constant="276" id="o04-pl-jSd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uUK-zL-REu" secondAttribute="trailing" constant="107" id="pwI-NW-ysc"/>
                             <constraint firstItem="uUK-zL-REu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="83" id="vbz-f9-o9i"/>
                             <constraint firstItem="qdP-vq-H6R" firstAttribute="top" secondItem="4On-2l-6fb" secondAttribute="bottom" constant="24" id="zi1-C4-K1o"/>
@@ -113,6 +130,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="138.28125" y="92.578125"/>
+        </scene>
+        <!--View Controller Creditos-->
+        <scene sceneID="G8q-r1-dug">
+            <objects>
+                <viewController id="gm3-eS-YYP" customClass="ViewControllerCreditos" customModule="Prototipo1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yQx-6C-4Gq">
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="984"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Creditos" translatesAutoresizingMaskIntoConstraints="NO" id="bhY-ks-ePo">
+                                <rect key="frame" x="41" y="199" width="624" height="636"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yya-4J-FCY">
+                                <rect key="frame" x="71" y="42" width="84" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <state key="normal" title="&lt; Regresar">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vFt-3c-9ic" kind="unwind" unwindAction="unwindGlosarioWithSegue:" id="Rx4-8W-I3i"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Creditos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l14-HF-HZV">
+                                <rect key="frame" x="291" y="134" width="123" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="t7U-4O-ZiH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3a5-sl-R4d"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hRx-1h-pYt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="vFt-3c-9ic" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="301.5625" y="908.78906249999989"/>
         </scene>
         <!--View Controller Glosario-->
         <scene sceneID="8gf-De-uas">
@@ -640,6 +698,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Creditos" width="610" height="343"/>
         <image name="arrow.counterclockwise" catalog="system" width="115" height="128"/>
         <image name="arrowshape.turn.up.backward.fill" catalog="system" width="128" height="106"/>
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
